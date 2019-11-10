@@ -55,13 +55,12 @@
 			</div> <!-- .row -->
 		</div> <!-- .container -->
 </div> <!-- #footer -->
-	<div class="copyright">
-		<div class="container">
-			<p class="pull-left">Copyright © 2019 The  Monsters Team. All rights reserved.</p>
-			<p class="pull-right pay-options">
-				<a href="http://paypal.com" style="margin-top:10px; "><img src="http://bizweb.dktcdn.net/100/163/301/themes/214804/assets/payment.jpg?1537798164010" alt="" width="auto" height="auto" /></a>
-			
-			</p>
-			<div class="clearfix"></div>
-		</div> <!-- .container -->
-	</div> <!-- .copyright -->
+<div class="copyright">
+	<div class="container">
+		<p class="pull-left">Copyright © 2019 The  Monsters Team. All rights reserved.</p>
+		<p class="pull-right pay-options">
+			<a href="http://paypal.com" style="margin-top:10px; "><img src="http://bizweb.dktcdn.net/100/163/301/themes/214804/assets/payment.jpg?1537798164010" alt="" width="auto" height="auto" /></a>
+		</p>
+		<div class="clearfix"></div>
+	</div> <!-- .container -->
+</div> <!-- .copyright -->

@@ -39,3 +39,15 @@ Route::get('gioi-thieu', [
     'as' => 'gioithieu',
     'uses' => 'PageController@getAbout',
 ]);
+Route::get('dang-nhap', [
+    'as' => 'dangnhap',
+    'uses' => 'PageController@getLogin',
+]);
+Route::get('dang-ki', [
+    'as' => 'dangki',
+    'uses' => 'PageController@getRegister',
+]);
+Route::post('dang-ki', [
+    'as' => 'pdangki',
+    'uses' => 'PageController@postRegister',
+]);

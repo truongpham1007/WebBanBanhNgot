@@ -17,15 +17,11 @@
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 </head>
 <body>
-
 	@include('header')
 	<div class="rev-slider">
 		@yield('content')
 	</div> <!-- .container -->
 	@include('footer')
-
-
-
 	<!-- include js files -->
 	<script src="source/assets/dest/js/jquery.js"></script>
 	<script src="source/assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
