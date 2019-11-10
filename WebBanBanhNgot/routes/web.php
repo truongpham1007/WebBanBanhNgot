@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+//fron end
 Route::get('/', function () {
     return view('welcome');
 });
@@ -51,3 +51,7 @@ Route::post('dang-ki', [
     'as' => 'pdangki',
     'uses' => 'PageController@postRegister',
 ]);
+
+//backend
+Route::get('/admin','AdminController@index');
+Route::get('/dashboard','AdminController@show_dashboard');
