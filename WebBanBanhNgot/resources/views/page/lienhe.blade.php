@@ -3,11 +3,11 @@
 <div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h6 class="inner-title">Contacts</h6>
+				<h6 class="inner-title">Liện hệ</h6>
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
-					<a href="index.html">Home</a> / <span>Contacts</span>
+					<a href="{{route('trangchu')}}">Trang chủ</a> / <span>Liên hệ</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -15,7 +15,7 @@
 	</div>
 	<div class="beta-map">
 
-		<div class="abs-fullwidth beta-map wow flipInX"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3678.0141923553406!2d89.551518!3d22.801938!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff8ff8ef7ea2b7%3A0x1f1e9fc1cf4bd626!2sPranon+Pvt.+Limited!5e0!3m2!1sen!2s!4v1407828576904" ></iframe></div>
+		<div class="abs-fullwidth beta-map wow flipInX"><iframe src="https://maps.google.com/maps?q=Uit&t=&z=13&ie=UTF8&iwloc=&output=embed" ></iframe></div>
 	</div>
 	<div class="container">
 		<div id="content" class="space-top-none">
@@ -23,51 +23,52 @@
 			<div class="space50">&nbsp;</div>
 			<div class="row">
 				<div class="col-sm-8">
-					<h2>Contact Form</h2>
+					<h2 style="color: blue;">Form liên hệ</h2>
 					<div class="space20">&nbsp;</div>
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani m id est laborum.</p>
+					<p style="color: red;">Vui lòng gửi phản hồi hoặc yêu cầu của quý khách đến với chúng tôi</p>
+					<br>
+					<p style="color: red;">Những thông tin ký hiệu dấu (*) bắt buộc phải điền</p>
 					<div class="space20">&nbsp;</div>
 					<form action="#" method="post" class="contact-form">
 						<div class="form-block">
-							<input name="your-name" type="text" placeholder="Your Name (required)">
+							<input name="your-name" type="text" placeholder="Họ và tên (*)">
 						</div>
 						<div class="form-block">
-							<input name="your-email" type="email" placeholder="Your Email (required)">
+							<input name="your-email" type="email" placeholder="Email của bạn (*)">
 						</div>
 						<div class="form-block">
-							<input name="your-subject" type="text" placeholder="Subject">
+							<input name="your-subject" type="text" placeholder="Tiêu đề">
 						</div>
 						<div class="form-block">
-							<textarea name="your-message" placeholder="Your Message"></textarea>
+							<textarea name="your-message" placeholder="Lời nhắn"></textarea>
 						</div>
 						<div class="form-block">
-							<button type="submit" class="beta-btn primary">Send Message <i class="fa fa-chevron-right"></i></button>
+							<button type="submit" class="beta-btn primary">Gửi  <i class="fa fa-chevron-right"></i></button>
 						</div>
 					</form>
 				</div>
 				<div class="col-sm-4">
-					<h2>Contact Information</h2>
+					<h2 style="color: blue;">Thông tin liên hệ</h2>
 					<div class="space20">&nbsp;</div>
 
-					<h6 class="contact-title">Address</h6>
+					<h6 class="contact-title" style="color: red;">Địa chỉ</h6>
+					<div class="space10">&nbsp;</div>
 					<p>
-						Suite 127 / 267 – 277 Brussel St,<br>
-						62 Croydon, NYC <br>
-						Newyork
+						 Khu phố 6, Linh Trung, Thủ Đức, Hồ Chí Minh
 					</p>
 					<div class="space20">&nbsp;</div>
-					<h6 class="contact-title">Business Enquiries</h6>
+					<h6 class="contact-title" style="color: red;">Thắc mắc kinh doanh</h6>
+					<div class="space10">&nbsp;</div>
 					<p>
-						Doloremque laudantium, totam rem aperiam, <br>
-						inventore veritatio beatae. <br>
-						<a href="mailto:biz@betadesign.com">biz@betadesign.com</a>
+						Trường phòng kinh doanh<br>
+						<a href="phuonghao@mostersteam.com">phuonghao@mostersteam.com</a>
 					</p>
 					<div class="space20">&nbsp;</div>
-					<h6 class="contact-title">Employment</h6>
+					<h6 class="contact-title" style="color: red;">Việc làm</h6>
+					<div class="space10">&nbsp;</div>
 					<p>
-						We’re always looking for talented persons to <br>
-						join our team. <br>
-						<a href="hr@betadesign.com">hr@betadesign.com</a>
+						Trưởng phòng nhân sự <br>
+						<a href="hr@betadesign.com">hr@mostersteam.com</a>
 					</p>
 				</div>
 			</div>
