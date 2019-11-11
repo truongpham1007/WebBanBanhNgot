@@ -53,5 +53,8 @@ Route::post('dang-ki', [
 ]);
 
 //backend
-Route::get('/admin','AdminController@index');
+Route::get('/login','AdminController@index');
 Route::get('/dashboard','AdminController@show_dashboard');
+Route::get('/logout','AdminController@log_out');
+
+Route::post('/admin-dashboard','AdminController@dashboard');

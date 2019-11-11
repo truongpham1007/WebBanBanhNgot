@@ -32,7 +32,7 @@
 						<div class="beta-products-list">
 							<h4>Sản phẩm mới</h4>
 							<div class="beta-products-details">
-								<p class="pull-left">Tìm thấy {{count($new_product)}} sản phẩm mới</p>
+								<p class="pull-left">Tìm thấy {{$new_product->total()}} sản phẩm mới</p>
 								<div class="clearfix"></div>
 							</div>
 
@@ -81,7 +81,7 @@
 
 							<h4>Sản phẩm khuyến mại </h4>
 							<div class="beta-products-details">
-								<p class="pull-left">Đang có {{count($sanpham_khuyenmai)}} sản phẩm khuyến mại  </p>
+								<p class="pull-left">Đang có {{$sanpham_khuyenmai->total()}} sản phẩm khuyến mại  </p>
 								<div class="clearfix"></div>
 							</div>
 							<div class="row">
