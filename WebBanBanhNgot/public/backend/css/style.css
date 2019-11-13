@@ -38,6 +38,31 @@ ul,label{
 body a:hover{
 	text-decoration:none;
 }
+/*change*/
+span.thumbs-styling.fa.fa-thumbs-up{
+    font-size: 28px;
+    color: red;
+
+}
+span.thumbs-styling.fa.fa-thumbs-down{
+    font-size: 28px;
+    color: green;
+    
+}
+/**/
+span.fa-thumb-styling.fa.fa-thumbs-up {
+    font-size: 28px;
+    color: red;
+}
+span.fa-thumb-styling.fa.fa-thumbs-down {
+    font-size: 28px;
+    color: green;
+}
+span.glyphicon.glyphicon-ok {
+    color: green;
+    size: 28px;
+    margin-left: 15px;
+}
 	/*sidebar navigation*/
 #sidebar {
     width:240px;

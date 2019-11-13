@@ -40,4 +40,40 @@ class CategoryProduct extends Controller
      	Session::put('message','Thêm thành công!!');
     	return Redirect::to('add-category-product');
     }
+    public function unactive_category_product($category_product_id){
+        
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
+        Session::put('message','Không hiển thị sản phẩm trên website!!');
+        return Redirect::to('all-category-product');
+
+    }
+    public function active_category_product($category_product_id){
+       
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>0]);
+        Session::put('message','Hiển thị sản phẩm trên website thành công!!');
+        return Redirect::to('all-category-product');
+    }
+
+    public function edit_category_product($category_product_id){
+        
+        $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get();
+        $manager_category_product  = view('admin.edit_category_product')->with('edit_category_product',$edit_category_product);
+        return view('admin_layout')->with('admin.edit_category_product', $manager_category_product);
+    }
+    public function update_category_product(Request $request,$category_product_id){
+       
+        $data = array();
+        $data['category_name'] = $request->category_product_name;
+        $data['slug_category_product'] = $request->slug_category_product;
+        $data['category_desc'] = $request->category_product_desc;
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update($data);
+        Session::put('message','Cập nhật danh mục sản phẩm thành công');
+        return Redirect::to('all-category-product');
+    }
+    public function delete_category_product($category_product_id){
+        
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->delete();
+        Session::put('message','Xóa danh mục sản phẩm thành công');
+        return Redirect::to('all-category-product');
+    }
 }
