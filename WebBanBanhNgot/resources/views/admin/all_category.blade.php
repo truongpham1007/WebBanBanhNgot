@@ -34,22 +34,36 @@
               </label>
             </th>
             <th>Tên</th>
+            <th>Giá gốc</th>
+            <th>Giá khuyến mãi</th>
+            <th>Loại</th>
+            <th>Đơn vị</th>
+            <th>Link ảnh</th>
             <th>Hiển thị</th>
+            <th>Desc</th>
             <th>Ngày thêm</th>
             <th>Thao tác</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
+          @foreach($all_category_product as $key => $cate_pro)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>Idrawfast prototype design prototype design prototype design prototype design prototype design</td>
-            <td><span class="text-ellipsis">Ẩn/Hiện thị</span></td>
-            <td><span class="text-ellipsis">12/11/2019</span></td>
+            <td>{{$cate_pro ->category_name}}</td>
+            <td><span class="text-ellipsis">{{$cate_pro-> category_unit_price}}</span></td>
+            <td><span class="text-ellipsis">{{$cate_pro->category_promotion_price}}</span></td>
+            <td><span class="text-ellipsis">{{$cate_pro->category_type}}</span></td>
+            <td><span class="text-ellipsis">{{$cate_pro->category_unit}}</span></td>
+            <td><span class="text-ellipsis"><img src="{{$cate_pro->category_image}}" height = 50px width =50px alt = ""></span></td>
+            <td><span class="text-ellipsis">{{$cate_pro ->category_status}}</span></td>
+            <td><span class="text-ellipsis">{{$cate_pro ->category_desc}}</span></td>
+            <td><span class="text-ellipsis">{{$cate_pro ->category_desc}} </span></td>
             <td>
              <a href="index.html">Sửa</a> / <a href="index.html">Xóa</a>
             </td>
           </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
