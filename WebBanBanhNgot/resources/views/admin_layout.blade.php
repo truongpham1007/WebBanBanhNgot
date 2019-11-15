@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>The Monsters Team Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="{{asset('')}}">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -70,13 +71,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ul>
         </li>
         <!-- user login dropdown end -->
-       
     </ul>
     <!--search & user info end-->
 </div>
 </header>
-<!--header end-->
-<!--sidebar start-->
+
 <aside>
     <div id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
@@ -95,16 +94,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Danh mục sản phẩm</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/add-category-product')}}">Thêm sản phẩm</a></li>
-						<li><a href="{{URL::to('/all-category-product')}}">Liệt kê danh mục sản phẩm</a></li>
-						<li><a href="{{URL::to('/all-category-product')}}">Quản lý User</a></li>
-						<li><a href="{{URL::to('/add-category-product')}}">Quản lý hóa đơn</a></li>
-						<li><a href="{{URL::to('/all-category-product')}}">Nhận tin góp ý</a></li>
+                        <li><a href="{{URL::to('/add-category-product')}}">Thêm sản phẩm</a></li>
+                        <li><a href="{{URL::to('/all-category-product')}}">Liệt kê danh mục sản phẩm</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quản lý hóa đơn</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/add-category-product')}}">Thêm sản phẩm</a></li>
+                        
 
                     </ul>
                 </li>
-              
-            </ul>            </div>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quản lý User</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/add-category-product')}}">Thêm sản phẩm</a></li>
+                        
+
+                    </ul>
+                </li>
+                 <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Nhận tin</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/add-category-product')}}">Thêm sản phẩm</a></li>
+                        
+
+                    </ul>
+                </li>
+            </ul>            
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>

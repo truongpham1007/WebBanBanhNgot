@@ -31,7 +31,7 @@
         if($message == true)
         {
               echo '<p  style="color : red;text-align:center;margin-top:20px ">'.$message.'</p>';
-            Session::put($message,null);
+            Session::put('message',null);
         }   
                             
       ?>

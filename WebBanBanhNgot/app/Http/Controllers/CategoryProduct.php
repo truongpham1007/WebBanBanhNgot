@@ -57,17 +57,23 @@ class CategoryProduct extends Controller
     public function edit_category_product($category_product_id){
         
         $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get();
-        $manager_category_product  = view('admin.edit_category_product')->with('edit_category_product',$edit_category_product);
-        return view('admin_layout')->with('admin.edit_category_product', $manager_category_product);
+        $manager_category_product = view('admin.edit_category')->with('edit_category_product',$edit_category_product);
+        return view('admin_layout')->with('admin.edit_category',$manager_category_product);
     }
-    public function update_category_product(Request $request,$category_product_id){
+    public function update_category_product(Request $req,$category_product_id){
        
         $data = array();
-        $data['category_name'] = $request->category_product_name;
-        $data['slug_category_product'] = $request->slug_category_product;
-        $data['category_desc'] = $request->category_product_desc;
+        $data['category_name'] = $req->category_product_name;
+        $data['category_unit_price'] = $req->category_product_unit_price;
+        $data['category_promotion_price'] = $req->category_product_promotion_price;
+        $data['category_image'] = $req->category_product_image;
+        $data['category_unit'] = $req->category_product_unit;
+        $data['category_type'] = $req->category_product_type;
+        $data['category_desc'] = $req->category_product_desc;
+        $data['category_new'] = $req->category_product_new;
+    
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update($data);
-        Session::put('message','Cập nhật danh mục sản phẩm thành công');
+        Session::put('message','Cập nhật thành công!!');
         return Redirect::to('all-category-product');
     }
     public function delete_category_product($category_product_id){
