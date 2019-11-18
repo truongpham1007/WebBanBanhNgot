@@ -13,29 +13,25 @@
                                             <th>Tên danh mục</th>
                                             <th>Trạng thái</th>
                                             <th>Desc</th>
-                                            <th>Thao tác</th>
-                                            
-                                            
-
+                                            <th>Thao tác</th>                                                                                 
                                         </tr>
-                                        <tr class="unread checked">
-                                            
-                                            
+                                         @foreach($all_category_product as $key => $cate_pro)
+                                        <tr class="unread checked">                                                                                        
                                             <td>
-                                                Lorem Ipsum is simply
+                                                {{$cate_pro->category_name}}
                                             </td>
                                             <td>
-                                                Lorem Ipsum is simply
+                                                {{$cate_pro->category_status}}
                                             </td>
                                             <td>
-                                                Lorem Ipsum is simply
+                                                {{$cate_pro->category_desc}}
                                             </td>
                                             <td>
                                                 <span>Sửa/</span> <span>Xóa</span>
                                             </td>
                                         </tr>
                                        
-                                       
+                                        @endforeach
 
                                     </tbody>
                                 </table>
