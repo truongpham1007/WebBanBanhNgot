@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Dashboard</title>
+<title>Admin</title>
 <base href="{{asset('')}}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -216,9 +216,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		           
 		          </ul>
 		        </li>
+
+		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-bookmark"></i><span>Thương hiệu sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          <ul id="menu-comunicacao-sub" >
+		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-brand-product')}}">Thêm </a>		              
+		            </li>
+		            <li id="menu-arquivos" ><a href="{{URL::to('/all-brand-product')}}">Liệt kê</a></li>
+		          </ul>
+		        </li>
+
+		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-bookmark"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          <ul id="menu-comunicacao-sub" >
+		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-brand-product')}}">Thêm </a>		              
+		            </li>
+		            <li id="menu-arquivos" ><a href="{{URL::to('/all-brand-product')}}">Liệt kê</a></li>
+		          </ul>
+		        </li>
+
 		         
-		        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Quản lý hóa đơn</span></a></li>
-		         <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Quản lý User</span></a></li>
+		        <li><a href="{{URL::to('/truonght011')}}"><i class="fa fa-bar-chart"></i><span>Quản lý hóa đơn</span></a></li>
+		         <li><a href="charts.html"><i class="fa fa-user"></i></i><span>Quản lý User</span></a></li>
+		         
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Nhận tin</span></span></a>
 		        	
 		        </li>

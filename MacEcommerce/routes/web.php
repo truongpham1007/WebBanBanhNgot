@@ -29,6 +29,25 @@ Route::post('/admin-dashboard','AdminController@getLogin');
 // category-product
 Route::get('/add-category-product','CategoryProduct@add_category_product');
 Route::get('/all-category-product','CategoryProduct@all_category_product');
+Route::get('/edit-category-product/{category_product_id}','CategoryProduct@edit_category_product');
+Route::get('/delete-category-product/{category_product_id}','CategoryProduct@delete_category_product');
+Route::get('/unactive-category-product/{category_product_id}','CategoryProduct@unactive_category_product');
+Route::get('/active-category-product/{category_product_id}','CategoryProduct@active_category_product');
 
 Route::post('/save-category-product','CategoryProduct@save_category_product');
+Route::post('/update-category-product/{category_product_id}','CategoryProduct@update_category_product');
+
+//Brand Controller
+
+Route::get('/add-brand-product','BrandController@add_brand_product');
+Route::get('/edit-brand-product/{brand_product_id}','BrandController@edit_brand_product');
+Route::get('/delete-brand-product/{brand_product_id}','BrandController@delete_brand_product');
+Route::get('/all-brand-product','BrandController@all_brand_product');
+
+Route::get('/unactive-brand-product/{brand_product_id}','BrandController@unactive_brand_product');
+Route::get('/active-brand-product/{brand_product_id}','BrandController@active_brand_product');
+
+Route::post('/save-brand-product','BrandController@save_brand_product');
+Route::post('/update-brand-product/{brand_product_id}','BrandController@update_brand_product');
+
 

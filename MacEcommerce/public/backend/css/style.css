@@ -21,6 +21,14 @@ a:hover {
   -o-transition: 0.5s all;
   text-decoration:none;
 }
+span.fa-thumb-styling.fa.fa-thumbs-down {
+    font-size: 28px;
+    color: red;
+}
+span.fa-thumb-styling.fa.fa-thumbs-up {
+    font-size: 28px;
+    color: green;
+}
 span.text-alert {
     color: red;
     font-size: 17px;

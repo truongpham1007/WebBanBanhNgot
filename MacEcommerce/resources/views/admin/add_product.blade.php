@@ -3,7 +3,7 @@
 <div class="col-md-12 compose-right">
 					<div class="inbox-details-default" >
 						<div class="inbox-details-heading">
-							Thêm thương hiệu
+							Thêm danh thương hiệu
 						</div>
 						<?php
 						$message = Session::get('message');
@@ -33,7 +33,7 @@
                                             
                                     </select>
 								</div>
-								<input type="submit" value="Thêm danh mục "> 
+								<input type="submit" value="Thêm sản phẩm "> 
 							</form>
 						</div>
 					</div>

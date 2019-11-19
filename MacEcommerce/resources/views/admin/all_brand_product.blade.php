@@ -26,35 +26,35 @@
                                             <th>Desc</th>
                                             <th>Thao tác</th>                                                                                 
                                         </tr>
-                                         @foreach($all_category_product as $key => $cate_pro)
+                                         @foreach($all_brand_product as $key => $cate_pro)
                                         <tr class="unread checked">   
                                             <td>
-                                                {{$cate_pro->category_id}}
+                                                {{$cate_pro->brand_id}}
                                             </td>                                                                                    
                                             <td>
-                                                {{$cate_pro->category_name}}
+                                                {{$cate_pro->brand_name}}
                                             </td>
                                             <td>
                                             <?php
-                                                if($cate_pro->category_status==0){
+                                                if($cate_pro->brand_status==0){
                                             ?>
-                                                    <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a>
+                                                    <a href="{{URL::to('/unactive-brand-product/'.$cate_pro->brand_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a>
                                             <?php
                                                 }else{
                                             ?>  
-                                                    <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-down"></span></a>
+                                                    <a href="{{URL::to('/active-brand-product/'.$cate_pro->brand_id)}}"><span class="fa-thumb-styling fa fa-thumbs-down"></span></a>
                                             <?php
                                                 }
                                             ?>
                                             </td>
                                             <td>
-                                                {{$cate_pro->category_desc}}
+                                                {{$cate_pro->brand_desc}}
                                             </td>
                                             <td>
-                                                 <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
+                                                 <a href="{{URL::to('/edit-brand-product/'.$cate_pro->brand_id)}}" class="active styling-edit" ui-toggle-class="">
                                                 <span>Sửa</span></a>
                                                 <span>/</span>
-                                                <a  onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
+                                                <a  onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-brand-product/'.$cate_pro->brand_id)}}" class="active styling-edit" ui-toggle-class="">
                                                 <span>Xóa</span>
                                                 </a>
                                             </td>
