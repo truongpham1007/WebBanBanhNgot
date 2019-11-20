@@ -201,7 +201,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--slider menu-->
     <div class="sidebar-menu">
-		  	<div class="logo"> <a href="{{URL::to('/dashboard')}}" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo" ></span> 
+		  	<div class="logo"> <a  class="sidebar-icon"> <span class="fa fa-bars"></span> </a>  <span id="logo" ></span> 
 			      <!--<img id="logo" src="" alt="Logo"/>--> 
 			  </a> </div>		  
 		    <div class="menu">
@@ -225,11 +225,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		          </ul>
 		        </li>
 
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-bookmark"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-paperclip"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
-		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-brand-product')}}">Thêm </a>		              
+		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-product')}}">Thêm </a>		              
 		            </li>
-		            <li id="menu-arquivos" ><a href="{{URL::to('/all-brand-product')}}">Liệt kê</a></li>
+		            <li id="menu-arquivos" ><a href="{{URL::to('/all-product')}}">Liệt kê</a></li>
 		          </ul>
 		        </li>
 

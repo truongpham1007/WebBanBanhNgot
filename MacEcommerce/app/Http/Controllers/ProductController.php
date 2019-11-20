@@ -39,20 +39,21 @@ class ProductController extends Controller
 
     }
     public function save_product(Request $request){
-         $this->AuthLogin();
+        $this->AuthLogin();
     	$data = array();
     	$data['product_name'] = $request->product_name;
-        $data['product_slug'] = $request->product_slug;
-    	$data['product_price'] = $request->product_price;
+        
+    	$data['product_promotion_price'] = $request->product_promotion_price;
+        $data['product_unit_price'] = $request->product_unit_price;
     	$data['product_desc'] = $request->product_desc;
         $data['product_content'] = $request->product_content;
         $data['category_id'] = $request->product_cate;
         $data['brand_id'] = $request->product_brand;
         $data['product_status'] = $request->product_status;
-        $data['product_image'] = $request->product_status;
-        $get_image = $request->file('product_image');
+        $data['product_image'] = $request->product_image;
+        //$get_image = $request->file('product_image');
       
-        if($get_image){
+        /*if($get_image){
             $get_name_image = $get_image->getClientOriginalName();
             $name_image = current(explode('.',$get_name_image));
             $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
@@ -62,20 +63,20 @@ class ProductController extends Controller
             Session::put('message','Thêm sản phẩm thành công');
             return Redirect::to('add-product');
         }
-        $data['product_image'] = '';
+        $data['product_image'] = '';*/
     	DB::table('tbl_product')->insert($data);
     	Session::put('message','Thêm sản phẩm thành công');
-    	return Redirect::to('all-product');
+    	return Redirect::to('add-product');
     }
     public function unactive_product($product_id){
-         $this->AuthLogin();
+        $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>1]);
         Session::put('message','Không kích hoạt sản phẩm thành công');
         return Redirect::to('all-product');
 
     }
     public function active_product($product_id){
-         $this->AuthLogin();
+        $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>0]);
         Session::put('message','Không kích hoạt sản phẩm thành công');
         return Redirect::to('all-product');
@@ -92,20 +93,19 @@ class ProductController extends Controller
         return view('admin_layout')->with('admin.edit_product', $manager_product);
     }
     public function update_product(Request $request,$product_id){
-         $this->AuthLogin();
+        $this->AuthLogin();
         $data = array();
-        $data['product_name'] = $request->product_name;
-       
-        $data['product_slug'] = $request->product_slug;
-        $data['product_price'] = $request->product_price;
+        $data['product_name'] = $request->product_name;      
+        $data['product_promotion_price'] = $request->product_promotion_price;
+        $data['product_unit_price'] = $request->product_unit_price;
         $data['product_desc'] = $request->product_desc;
         $data['product_content'] = $request->product_content;
         $data['category_id'] = $request->product_cate;
         $data['brand_id'] = $request->product_brand;
         $data['product_status'] = $request->product_status;
-        $get_image = $request->file('product_image');
+        $data['product_image'] = $request->product_image;
         
-        if($get_image){
+        /*if($get_image){
                     $get_name_image = $get_image->getClientOriginalName();
                     $name_image = current(explode('.',$get_name_image));
                     $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
@@ -114,7 +114,7 @@ class ProductController extends Controller
                     DB::table('tbl_product')->where('product_id',$product_id)->update($data);
                     Session::put('message','Cập nhật sản phẩm thành công');
                     return Redirect::to('all-product');
-        }
+        }*/
             
         DB::table('tbl_product')->where('product_id',$product_id)->update($data);
         Session::put('message','Cập nhật sản phẩm thành công');
