@@ -14,6 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+// User
+Route::get('/home','HomeController@getIndex');
+Route::get('/product-type','HomeController@getProductType');
+Route::get('/product-detail','HomeController@getProductDetail');
+Route::get('/contact','HomeController@getContact');
+Route::get('/about-us','HomeController@getAboutUs');
+Route::get('/login-user','HomeController@getLogin');
+Route::get('/register','HomeController@getRegister');
+Route::get('/logout-user','HomeController@getLogout');
 
 
 // back-end

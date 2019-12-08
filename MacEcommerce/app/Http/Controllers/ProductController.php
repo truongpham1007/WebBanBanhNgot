@@ -42,7 +42,6 @@ class ProductController extends Controller
         $this->AuthLogin();
     	$data = array();
     	$data['product_name'] = $request->product_name;
-        
     	$data['product_promotion_price'] = $request->product_promotion_price;
         $data['product_unit_price'] = $request->product_unit_price;
     	$data['product_desc'] = $request->product_desc;

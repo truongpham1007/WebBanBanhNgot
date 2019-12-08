@@ -3,7 +3,7 @@
 <div class="col-md-12 compose-right">
 					<div class="inbox-details-default" >
 						<div class="inbox-details-heading">
-							Thêm danh thương hiệu
+							Thêm  thương hiệu
 						</div>
 						<?php
 						$message = Session::get('message');

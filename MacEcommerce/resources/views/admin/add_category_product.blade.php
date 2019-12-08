@@ -3,7 +3,7 @@
 <div class="col-md-12 compose-right">
 					<div class="inbox-details-default" >
 						<div class="inbox-details-heading">
-							Thêm thương hiệu
+							Thêm loại sản phẩm
 						</div>
 						<?php
 						$message = Session::get('message');
@@ -15,19 +15,19 @@
 						}
 						?>
 						<div class="inbox-details-body">
-							<form class="com-mail" action="{{URL::to('/save-brand-product')}}" method="post">
+							<form class="com-mail" action="{{URL::to('/save-category-product')}}" method="post">
 								{{ csrf_field() }}
 								<div class="form-group">
-									<label>Tên thương hiệu</label>
-									<input type="text" name="brand_product_name">
+									<label>Tên loại sản phẩm</label>
+									<input type="text" name="category_product_name">
 								</div>
 								<div class="form-group">
-									<label >Mô tả thương hiệu</label>
-									<textarea rows="6" name="brand_product_desc"> </textarea>
+									<label >Mô tả loại sản phẩm</label>
+									<textarea rows="6" name="category_product_desc"> </textarea>
 								</div>								
 								<div class="form-group">
 									<label>Hiển thị</label>
-                                      <select name="brand_product_status" class="form-control input-sm m-bot15">
+                                      <select name="category_product_status" class="form-control input-sm m-bot15">
                                             <option value="0">Ẩn</option>
                                             <option value="1">Hiển thị</option>
                                             

@@ -1,7 +1,7 @@
 @extends('admin_layout')
 @section('admin_content')
 <div class="inbox">
-                    <h2>Liệt kê sản phẩm</h2>
+                    <h2>Liệt kê thương hiệu sản phẩm</h2>
 
                     <div class="col-md-12 mailbox-content  tab-content tab-content-in">
                         <div class="tab-pane active text-style" id="tab1">
