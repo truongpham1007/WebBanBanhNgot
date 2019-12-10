@@ -27,17 +27,17 @@
 								</div>								
 								<div class="form-group">
 									<label>Hiển thị</label>
-                                      <select name="category_product_status" class="form-control input-sm m-bot15">
-                                            <option value="0">Ẩn</option>
-                                            <option value="1">Hiển thị</option>
-                                            
-                                    </select>
+									  <select name="category_product_status" class="form-control input-sm m-bot15">
+											<option value="0">Ẩn</option>
+											<option value="1">Hiển thị</option>
+											
+									</select>
 								</div>
 								<input type="submit" value="Thêm danh mục "> 
 							</form>
 						</div>
 					</div>
 				</div>
-    	
-          <div class="clearfix"> </div>  
+		
+		  <div class="clearfix"> </div>  
 @endsection

@@ -12,9 +12,11 @@ session_start();
 class HomeController extends Controller
 {
      public function getIndex(){
-        $cate_product = DB::table('tbl_category_product')->where('category_status',0)->orderby('category_id','asc')->get(); 
-        $brand_product = DB::table('tbl_brand')->orderby('brand_id','asc')->get(); 
-        return view('pages.home')->with('category',$cate_product)->with('brand',$brand_product);
+        
+        $top_product = DB::table('tbl_product')->where('product_status',0)->orderby('product_id','asc')->limit(8)->get(); 
+        $sale_product = DB::table('tbl_product')->where('product_status',0)->orderby('product_id','desc')->limit(8)->get(); 
+        $all_product = DB::table('tbl_product')->where('product_status',0)->orderby('product_id','desc')->limit(8)->get(); 
+        return view('pages.home')->with('all_product',$all_product)->with('top_product',$top_product)->with('sale_product',$sale_product);
     }
 
     public function getProductType(){

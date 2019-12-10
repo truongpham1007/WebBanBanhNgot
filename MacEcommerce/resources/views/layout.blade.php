@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Laravel </title>
+	<title>Goka | Thiết bị công nghệ chính hãng </title>
+	<link rel="shortcut icon" href="//theme.hstatic.net/1000337134/1000446075/14/favicon.png?v=233" type="image/png" />
 	<base href="{{asset('')}}">
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -24,7 +25,7 @@
 				<div class="pull-left auto-width-left">
 					<ul class="top-menu menu-beta l-inline">
 						<li><a href=""><i class="fa fa-home"></i> 90-92 Lê Thị Riêng, Bến Thành, Quận 1</a></li>
-						<li><a href=""><i class="fa fa-phone"></i> 0163 296 7751</a></li>
+						<li><a href=""><i class="fa fa-phone"></i> 0372258239</a></li>
 					</ul>
 				</div>
 				<div class="pull-right auto-width-right">
@@ -112,9 +113,6 @@
 					<ul class="l-inline ov">
 						<li><a href="{{URL::to('/home')}}">Trang chủ</a></li>
 						<li><a href="{{URL::to('/product-type')}}">Sản phẩm</a>
-							<ul class="sub-menu">
-								<li><a href="product_type.html">Sản phẩm 1</a></li>
-							</ul>
 						</li>
 						<li><a href="{{URL::to('/about-us')}}">Giới thiệu</a></li>
 						<li><a href="{{URL::to('/contact')}}">Liên hệ</a></li>
@@ -160,8 +158,9 @@
 						<div>
 							<div class="contact-info">
 								<i class="fa fa-map-marker"></i>
-								<p>30 South Park Avenue San Francisco, CA 94108 Phone: +78 123 456 78</p>
-								<p>Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
+								<p>90-92 Lê Thị Riêng, Bến Thành, Quận 1 Phone: +84 37 258 239</p>
+								<div class="space10">&nbsp;</div>
+								<p>Goka cung cấp sản phẩm, thiết bị công nghệ chính hãng và phụ kiện đi kèm của Microsoft Surface và Apple Macbook - Với sự tận tâm, trách nhiệm trong công việc, Goka đặt sự hài lòng của khách hàng lên hàng đầu. Cùng với chế độ bảo hành và hậu mãi cực tốt. Goka chắc chắn sẽ làm hài lòng Quý khách hàng!</p>
 							</div>
 						</div>
 					</div>

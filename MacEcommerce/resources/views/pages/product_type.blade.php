@@ -22,7 +22,7 @@
 						<p>Loại sản phẩm</p>
 						<div class="space20">&nbsp;</div>
 						<ul class="aside-menu">
-							@foreach($category  as $key => $cate)
+							@foreach($category  as $keycate => $cate)
 							<li><a href="{{URL::to('/category-type/'.$cate->category_id)}}">{{$cate->category_name}}</a></li>	
 							@endforeach
 						</ul>
@@ -30,16 +30,16 @@
 						<p>Thương hiệu</p>
 						<div class="space20">&nbsp;</div>
 						<ul class="aside-menu">
-							@foreach($brand  as $key1 => $brand)
+							@foreach($brand  as $keybarand => $brand)
 							<li><a href="{{URL::to('/brand-type/'.$brand->brand_id)}}">{{$brand->brand_name}}</a></li>	
 							@endforeach
 						</ul>
 					</div>
 					<div class="col-sm-9">
 						<div class="beta-products-list">
-							<h4>New Products</h4>
+							<h4>Sản phẩm mới</h4>
 							<div class="beta-products-details">
-								<p class="pull-left">438 styles found</p>
+								<p class="pull-left"></p>
 								<div class="clearfix"></div>
 							</div>
 
@@ -48,7 +48,7 @@
 								<div class="col-sm-3">
 									<div class="single-item">
 										<div class="single-item-header">
-											<a href="product.html"><img src="assets/dest/images/products/1.jpg" alt=""></a>
+											<a href="product.html"><img src="assets/dest/images/products/1.jpg" alt="" height="320px" width="270px"></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{$cate->category_name}}</p>
@@ -78,6 +78,7 @@
 							</div>
 							<div class="row">
 								@foreach($all_product as $all => $product)
+
 								<div class="col-sm-4">
 									<div class="single-item">
 										@if($product->product_promotion_price != 0)
@@ -85,7 +86,7 @@
 										@endif
 										<div class="single-item-header">
 											<a href="product.html"><img src="{{$product->product_image}}" alt=""
-												height="270" width="320"></a>
+												height="320px" width="270px"></a>
 										</div>
 										<div class="space10">&nbsp;</div>
 										<div class="single-item-body">
@@ -104,7 +105,7 @@
 										</div>
 										<div class="single-item-caption">
 											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+											<a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>

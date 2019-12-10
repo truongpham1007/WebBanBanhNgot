@@ -6,8 +6,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Admin</title>
+<title>Goka | Admin</title>
 <base href="{{asset('')}}">
+<link rel="shortcut icon" href="//theme.hstatic.net/1000337134/1000446075/14/favicon.png?v=233" type="image/png" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
