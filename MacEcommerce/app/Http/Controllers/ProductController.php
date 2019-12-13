@@ -149,4 +149,31 @@ class ProductController extends Controller
         return view('pages.sanpham.show_details')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product)->with('relate',$related_product);
 
     }
+    //end admin
+    public function getProductDetail($product_id){
+         $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 
+        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get(); 
+
+        $details_product = DB::table('tbl_product')
+        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
+        ->where('tbl_product.product_id',$product_id)->get();
+
+        foreach($details_product as $key => $value){
+            $category_id = $value->category_id;
+        }
+        $sale_product = DB::table('tbl_product')->where('product_status',0)->where('product_promotion_price','<>',0)->orderby('product_id','desc')->limit(4)->get(); 
+        $all_product = DB::table('tbl_product')->where('product_status',0)->orderby('product_id','desc')->limit(4)->get(); 
+        
+       
+
+       $related_product = DB::table('tbl_product')
+        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
+        ->where('tbl_category_product.category_id',$category_id)->get();
+
+
+        return view('pages.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product)->with('related',$related_product)->with('sale_product',$sale_product)->with('all_product',$all_product);
+
+    }
 }

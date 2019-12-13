@@ -17,12 +17,17 @@ Route::get('/', function () {
 // User
 Route::get('/home','HomeController@getIndex');
 Route::get('/product-type','HomeController@getProductType');
-Route::get('/product-detail','HomeController@getProductDetail');
+Route::get('/product-detail/{product_id}','ProductController@getProductDetail');
 Route::get('/contact','HomeController@getContact');
 Route::get('/about-us','HomeController@getAboutUs');
 Route::get('/login-user','HomeController@getLogin');
 Route::get('/register','HomeController@getRegister');
 Route::get('/logout-user','HomeController@getLogout');
+Route::get('/checkout','HomeController@getCheckOut');
+//show category 
+Route::get('/category-type/{category_id}','CategoryProduct@showCategoryProduct');
+Route::get('/brand-type/{brand_id}','BrandController@showBrandProduct');
+
 
 
 // back-end

@@ -89,8 +89,19 @@ class BrandController extends Controller
 
         $brand_by_id = DB::table('tbl_product')->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')->where('tbl_brand.brand_slug',$brand_slug)->get();
 
-        $brand_name = DB::table('tbl_brand')->where('tbl_brand.brand_slug',$brand_slug)->limit(1)->get();
+        $brand_name = DB::table('tbl_brand')->where('tbl_brand.brand_id',$brand_slug)->limit(1)->get();
 
         return view('pages.brand.show_brand')->with('category',$cate_product)->with('brand',$brand_product)->with('brand_by_id',$brand_by_id)->with('brand_name',$brand_name);
+    }
+    public function showBrandProduct ($brand_id){
+        $cate_product = DB::table('tbl_category_product')->where('category_status',0)->orderby('category_id','asc')->get(); 
+        $brand_product = DB::table('tbl_brand')->orderby('brand_id','asc')->get(); 
+        $brand_by_id = DB::table('tbl_product')->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')->where('tbl_product.brand_id',$brand_id)->get();
+        $all_product = DB::table('tbl_product')->where('product_status',0)->orderby('product_id','desc')->limit(8)->get(); 
+
+            
+       
+        $brand_name = DB::table('tbl_brand')->where('tbl_brand.brand_id',$brand_id)->limit(1)->get();
+        return view('pages.show_brand')->with('category',$cate_product)->with('brand',$brand_product)->with('brand_id',$brand_by_id)->with('all_product',$all_product)->with('brand_name',$brand_name);
     }
 }

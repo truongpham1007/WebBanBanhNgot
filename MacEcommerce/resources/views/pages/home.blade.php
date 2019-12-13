@@ -49,78 +49,41 @@
 						<div class="space50">&nbsp;</div>
 						<div class="beta-products-list">
 							<h4>Sản phẩm được yêu thích</h4>
+							<div class="space20">&nbsp;</div>
 							<div class="beta-products-details">
 								
 								<div class="clearfix"></div>
 							</div>
 							<div class="row">
-								@foreach($top_product as $top => $product)
-								@if($product->product_status == 0)
-								<div class="col-sm-4">
+								@foreach($all_product as $sale => $product)
+								
+								
+								<div class="col-sm-3">
 									<div class="single-item">
 										@if($product->product_promotion_price != 0)
 											<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 										@endif
 										<div class="single-item-header">
-											<a href="product.html"><img src="{{$product->product_image}}" alt=""
+											<a href="{{URL::to('/product-detail/'.$product->product_id)}}"><img src="{{$product->product_image}}" alt=""
 												height="320px" width="270px"></a>
 										</div>
 										<div class="space10">&nbsp;</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{$product->product_name}}</p>
+											<div class="space10">&nbsp;</div>
 											<p class="single-item-price">
+																				
 												@if($product->product_promotion_price==0)
-												<span class="flash-sale">{{number_format($product->product_unit_price)}} Đ</span>
+												<span class="flash-sale" style="font-size: 25px;">{{number_format($product->product_unit_price)}} Đ</span>
+												<div class="space35">&nbsp;</div>
 
 												@else
-												<span class="flash-del">{{number_format($product->product_unit_price)}} Đ</span>
-												<span class="flash-sale">{{number_format($product->product_promotion_price)}} Đ</span>
+												<span class="flash-del" style="font-size: 25px;">{{number_format($product->product_unit_price)}} Đ</span>
+												
+												<div class="space10">&nbsp;</div>
+												<span class="flash-sale" style="font-size: 25px;">
+												{{number_format($product->product_promotion_price)}} Đ</span>
 												@endif
-											</p>
-
-											<div class="space20">&nbsp;</div>
-										</div>
-										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								@endif
-								@endforeach
-							</div>
-							<div class="space40">&nbsp;</div>	
-						</div> <!-- .beta-products-list -->
-						<div class="beta-products-list">
-							<h4>Sản phẩm khuyến mãi</h4>
-							<div class="beta-products-details">
-								
-								
-							</div>
-
-							<div class="row">
-								@foreach($sale_product as $sale => $product)
-								@if($product->product_promotion_price != 0)
-								
-								<div class="col-sm-4">
-									<div class="single-item">
-										@if($product->product_promotion_price != 0)
-											<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
-										@endif
-										<div class="single-item-header">
-											<a href="product.html"><img src="{{$product->product_image}}" alt=""
-												height="320px" width="270px"></a>
-										</div>
-										<div class="space10">&nbsp;</div>
-										<div class="single-item-body">
-											<p class="single-item-title">{{$product->product_name}}</p>
-											<p class="single-item-price">
-												
-
-												
-												<span class="flash-del">{{number_format($product->product_unit_price)}} Đ</span>
-												<span class="flash-sale">{{number_format($product->product_promotion_price)}} Đ</span>
 										
 											</p>
 
@@ -128,9 +91,66 @@
 										</div>
 										<div class="single-item-caption">
 											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Chi tiết<i class="fa fa-chevron-right"></i></a>
+											<a class="beta-btn primary" href="{{URL::to('/product-detail/'.$product->product_id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
+
 										</div>
+										<div class="space20">&nbsp;</div>
+									</div>
+								</div>
+
+									
+								@endforeach
+								
+							</div>
+							<div class="space40">&nbsp;</div>	
+						</div> <!-- .beta-products-list -->
+						<div class="beta-products-list">
+							<h4>Sản phẩm khuyến mãi</h4>
+							<div class="beta-products-details">
+							</div>
+							<div class="row">
+								@foreach($sale_product as $sale => $product)
+								@if($product->product_promotion_price != 0)
+								
+								<div class="col-sm-3">
+									<div class="single-item">
+										@if($product->product_promotion_price != 0)
+											<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+										@endif
+										<div class="single-item-header">
+											<a href="{{URL::to('/product-detail/'.$product->product_id)}}"><img src="{{$product->product_image}}" alt=""
+												height="320px" width="270px"></a>
+										</div>
+										<div class="space10">&nbsp;</div>
+										<div class="single-item-body">
+											<p class="single-item-title">{{$product->product_name}}</p>
+											<div class="space10">&nbsp;</div>
+											<p class="single-item-price">
+																				
+												@if($product->product_promotion_price==0)
+												<span class="flash-sale" style="font-size: 25px;">{{number_format($product->product_unit_price)}} Đ</span>
+												<div class="space35">&nbsp;</div>
+
+												@else
+												<span class="flash-del" style="font-size: 25px;">{{number_format($product->product_unit_price)}} Đ</span>
+												
+												<div class="space10">&nbsp;</div>
+												<span class="flash-sale" style="font-size: 25px;">
+												{{number_format($product->product_promotion_price)}} Đ</span>
+												@endif
+										
+											</p>
+
+											<div class="space20">&nbsp;</div>
+										</div>
+										<div class="single-item-caption">
+											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{URL::to('/product-detail/'.$product->product_id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
+											<div class="clearfix"></div>
+
+										</div>
+										<div class="space20">&nbsp;</div>
 									</div>
 								</div>
 								@endif
