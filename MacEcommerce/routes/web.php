@@ -23,7 +23,10 @@ Route::get('/about-us','HomeController@getAboutUs');
 Route::get('/login-user','HomeController@getLogin');
 Route::get('/register','HomeController@getRegister');
 Route::get('/logout-user','HomeController@getLogout');
-Route::get('/checkout','HomeController@getCheckOut');
+
+//Cart
+Route::post('/save-cart','CartController@getCheckOut');
+Route::get('/show-cart','CartController@getCart');
 //show category 
 Route::get('/category-type/{category_id}','CategoryProduct@showCategoryProduct');
 Route::get('/brand-type/{brand_id}','BrandController@showBrandProduct');

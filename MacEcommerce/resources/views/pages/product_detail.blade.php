@@ -7,7 +7,7 @@
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
-					<a href="{{URL::to('/home')}}">Home</a> / <span>Product</span>
+					<a href="index.html">Home</a> / <span>Chi tiết</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -16,11 +16,12 @@
 
 	<div class="container">
 		<div id="content">
-			@foreach($product_details as $dt => $value)
 			<div class="row">
 				<div class="col-sm-9">
-
+					@foreach($product_details as $dt => $value)
 					<div class="row">
+						<form action="{{URL::to('/save-cart')}}" method="post">
+				{{csrf_field()}}
 						<div class="col-sm-4">
 							<img src="{{$value->product_image}}" alt="">
 						</div>
@@ -51,6 +52,8 @@
 								<div class="space30">&nbsp;</div>
 								<p ><b>Trạng thái : </b>Còn hàng</p>
 								<div class="space10">&nbsp;</div>
+								<input type="hidden" name="product_id_hidden" value="{{$value->product_id}}"/>
+								<div class="space10">&nbsp;</div>
 								<p ><b>Thương hiệu : </b>{{$value->brand_name}}</p>
 								<div class="space10">&nbsp;</div>
 								<p ><b>Loại sản phẩm : </b>{{$value->category_name}}</p>
@@ -58,34 +61,37 @@
 							<div class="space20">&nbsp;</div>
 
 							<p style="color: blue">Tùy chọn :</p>
-							<div class="space20">&nbsp;</div>
+								<div class="space20">&nbsp;</div>
+							
 							<div class="single-item-options">
-								
-								
-								<a class="beta-btn primary" href="{{URL::to('checkout')}}"><p>Thêm vào giỏ hàng</p></i></a>
+								<option>Qty : &nbsp</option>
+									<input name="qty" type="number" min="1"  value="1" />
+
+								<button class="beta-btn primary" type="submit"><p>Thêm vào giỏ hàng</p></i></button>
 								<div class="clearfix"></div>
 							</div>
 						</div>
+					</form>
 					</div>
-
+					@endforeach
 					<div class="space40">&nbsp;</div>
 					<div class="woocommerce-tabs">
 						<ul class="tabs">
-							<li><a href="#tab-description" style="color: blue" >Description</a></li>
-							<li><a href="#tab-reviews" style="color: blue" >Reviews (0)</a></li>
+							<li><a href="#tab-description">Mô tả</a></li>
+							<li><a href="#tab-reviews">Đánh giá</a></li>
 						</ul>
-
+						@foreach($product_details as $dt2 => $value)
 						<div class="panel" id="tab-description">
 							<p>{{$value->product_content}}</p>
 						</div>
 						<div class="panel" id="tab-reviews">
 							<p>No Reviews</p>
 						</div>
+						@endforeach
 					</div>
 					<div class="space50">&nbsp;</div>
 					<div class="beta-products-list">
-						<h4>Sản phẩm liên quan</h4>
-						<div class="space30">&nbsp;</div>
+						<h4>Related Products</h4>
 
 						<div class="row">
 							@foreach($related as $rela => $product)
@@ -127,10 +133,10 @@
 				</div>
 				<div class="col-sm-3 aside">
 					<div class="widget">
-						<h3 class="widget-title">Khuyến mãi khủng</h3>
+						<h3 class="widget-title">Best Sellers</h3>
 						<div class="widget-body">
 							<div class="beta-sales beta-lists">
-
+								
 								@foreach($sale_product as $sale => $product)
 								
 								<div class="media beta-sales-item">
@@ -143,11 +149,12 @@
 								</div>
 								
 								@endforeach
+							
 							</div>
 						</div>
 					</div> <!-- best sellers widget -->
 					<div class="widget">
-						<h3 class="widget-title">Sản phẩm mới</h3>
+						<h3 class="widget-title">New Products</h3>
 						<div class="widget-body">
 							<div class="beta-sales beta-lists">
 								@foreach($all_product as $sale => $product)
@@ -167,7 +174,6 @@
 					</div> <!-- best sellers widget -->
 				</div>
 			</div>
-			@endforeach
 		</div> <!-- #content -->
 	</div> <!-- .container -->
 @endsection
