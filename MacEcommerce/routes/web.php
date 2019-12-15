@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 // User
 Route::get('/home','HomeController@getIndex');
+Route::post('/search','HomeController@search');
 Route::get('/product-type','HomeController@getProductType');
 Route::get('/product-detail/{product_id}','ProductController@getProductDetail');
 Route::get('/contact','HomeController@getContact');
@@ -24,9 +25,28 @@ Route::get('/login-user','HomeController@getLogin');
 Route::get('/register','HomeController@getRegister');
 Route::get('/logout-user','HomeController@getLogout');
 
+
 //Cart
 Route::post('/save-cart','CartController@getCheckOut');
 Route::get('/show-cart','CartController@getCart');
+Route::get('/delete-to-cart/{rowId}','CartController@delete_to_cart');
+Route::post('/update-cart-quantity','CartController@update_cart_quantity');
+//Checkout
+
+Route::get('/login-checkout','CheckoutController@login_checkout');
+Route::get('/logout-checkout','CheckoutController@logout_checkout');
+Route::post('/add-customer','CheckoutController@add_customer');
+
+Route::post('/order-place','CheckoutController@order_place');
+Route::post('/login-customer','CheckoutController@login_customer');
+Route::get('/checkout','CheckoutController@checkout');
+Route::get('/payment','CheckoutController@payment');
+Route::post('/save-checkout-customer','CheckoutController@save_checkout_customer');
+
+//Order
+Route::get('/manage-order','CheckoutController@manage_order');
+Route::get('/view-order/{orderId}','CheckoutController@view_order');
+Route::get('/delete-order/{order_id}','CheckoutController@delete_order');
 //show category 
 Route::get('/category-type/{category_id}','CategoryProduct@showCategoryProduct');
 Route::get('/brand-type/{brand_id}','BrandController@showBrandProduct');

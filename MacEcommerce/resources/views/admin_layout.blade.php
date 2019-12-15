@@ -235,13 +235,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </li>
 
 		         
-		        <li><a href="{{URL::to('/truonght011')}}"><i class="fa fa-bar-chart"></i><span>Quản lý hóa đơn</span></a></li>
-		         <li><a href="charts.html"><i class="fa fa-user"></i></i><span>Quản lý User</span></a></li>
+		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-paperclip"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          <ul id="menu-comunicacao-sub" >
+		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/manage-order')}}">Liệt kê </a>		              
+		            </li>
+		           
+		          </ul>
+		        </li>
+		        <li><a href="charts.html"><i class="fa fa-user"></i></i><span>Quản lý User</span></a></li>
 		         
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Nhận tin</span></span></a>
 		        	
 		        </li>
-		         <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
+		       
 		        
 		      </ul>
 		    </div>

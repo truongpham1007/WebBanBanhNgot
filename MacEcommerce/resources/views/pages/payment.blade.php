@@ -16,10 +16,7 @@
 	</div>
 	
 	<div class="container">
-		<?php
-                                   $customer_id = Session::get('customer_id');
-                                   if($customer_id!=NULL){ 
-                                 ?>
+		
                                   
                                 <div id="content">
 			
@@ -69,13 +66,7 @@
 							</td>
 
 							<td class="product-quantity">
-								<form action="{{URL::to('/update-cart-quantity')}}" method="POST">
-									{{ csrf_field() }}
-									<input class="cart_quantity_input" type="text" name="cart_quantity" value="{{$product->qty}}"  >
-									<input type="hidden" value="{{$product->rowId}}" name="rowId_cart" class="form-control">
-									<div class="space10">&nbsp;</div>
-									<input type="submit" value="Cập nhật" name="update_qty" class="btn btn-default btn-sm">
-								</form>
+								<p style="font-size: 20px;">{{$product->qty}}</p>
 							</td>
 
 							<td class="product-subtotal">
@@ -95,43 +86,57 @@
 					</tbody>
 
 					<tfoot>
+						<form action="{{URL::to('/order-place')}}" method="post">
+							{{csrf_field()}}
 						<tr >
 							<td colspan="7" class="actions">
+								<p>Hình thức thanh toán</p>
+							
+							<div class="your-order-body">
+								<ul class="payment_methods methods">
+									<li class="payment_method_bacs">
+										<input name="payment_option" type="radio" class="input-radio" name="payment_method" value="2" checked="checked" data-order_button_text="">
+										<label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
+										<div class="payment_box payment_method_bacs" style="display: block;">
+											Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
+										</div>						
+									</li>
+
+									<li class="payment_method_cheque">
+										<input name="payment_option" type="radio" class="input-radio" name="payment_method" value="1" data-order_button_text="">
+										<label for="payment_method_cheque">Chuyển khoản </label>
+										<div class="payment_box payment_method_cheque" style="display: none;">
+											Chuyển tiền đến tài khoản sau:
+											<br>- Số tài khoản: 123 456 789
+											<br>- Chủ TK: Nguyễn A
+											<br>- Ngân hàng ACB, Chi nhánh TPHCM
+										</div>						
+									</li>
+									
+								</ul>
+							</div>		
+							</div>
 								<p style="font-size: 20px;" ><b>Tổng tiền :&nbsp </b>{{Cart::subtotal().' '.'vnđ'}}</p>
 								<div class="space10">&nbsp;</div>
 								<p style="font-size: 20px;"><b>Phí vận chuyển : &nbsp </b>Free Ship</p>
 								<div class="space10">&nbsp;</div>
 								<p style="font-size: 20px; color: red"><b>Tổng : &nbsp </b> {{Cart::subtotal().' '.'vnđ'}}</p>
+								<div class="space20">&nbsp;</div>
+								<button class="beta-btn primary" type="submit" name="proceed">Thanh toán<i class="fa fa-chevron-right"></i></button>
 							</td>
 
 							
 						</tr>
-						<tr>
-							<td colspan="7" class="actions">
-								<a href="{{URL::to('/home')}}" class="beta-btn primary" name="proceed">Tiếp tục mua <i class="fa fa-chevron-right"></i></a>
-								<!-- <button type="submit" class="beta-btn primary" name="update_cart">Cập nhật giỏ hàng <i class="fa fa-chevron-right"></i></button>  -->
-								<a href="{{URL::to('/checkout')}}" class="beta-btn primary" name="proceed">Mua hàng<i class="fa fa-chevron-right"></i></a>
-
-							</td>
-						</tr>
+						</form>
+						
 					</tfoot>
 				</table>			
-			</div>			
-			</div>
+			</div>	
+
 		</div> <!-- #content -->
-                                <?php
-                            }else{
-                                 ?>
-                                 <div class="space60">&nbsp;</div>
-                                 <p style="color: red; font-size: 20px;">*Vui lòng <a href="{{URL::to('/register')}}">  <u style="color: blue;">đăng nhập tại đây</u> </a> để tiếp tục mua hàng </p>
-                                 <?php 
-                             }
-                                 ?>
+                                
 		
-		<div class="space60">&nbsp;</div>
-		<div class="space60">&nbsp;</div>
-		<div class="space60">&nbsp;</div>
-		<div class="space60">&nbsp;</div>
+		
 		<div class="clearfix"></div>
 	</div> <!-- .container -->
 @endsection

@@ -16,6 +16,7 @@
 	<link rel="stylesheet" title="style" href="frontend/assets/dest/css/style.css">
 	<link rel="stylesheet" href="frontend/assets/dest/css/animate.css">
 	<link rel="stylesheet" title="style" href="frontend/assets/dest/css/huong-style.css">
+	
 </head>
 <body>
 
@@ -30,9 +31,32 @@
 				</div>
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
-						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-						<li><a href="{{URL::to('/register')}}">Đăng kí</a></li>
-						<li><a href="{{URL::to('/login-user')}}">Đăng nhập</a></li>
+						
+						<?php
+                                   $customer_id = Session::get('customer_id');
+                                   if($customer_id!=NULL){ 
+                                 ?>
+                                 <li><a ><i class="fa fa-user"></i>
+                                 <?php
+														$name = Session::get('customer_name');
+														if($name){
+															echo $name;
+						
+														}
+													?></a></li>
+                                  
+                                  <li><a href="{{URL::to('/logout-checkout')}}">Đăng xuất</a></li>
+                                
+                                <?php
+                            }else{
+                                 ?>
+                                 <li><a href="{{URL::to('/login-checkout')}}">Đăng nhập</a></li>
+                                 <li><a href="{{URL::to('/register')}}">Đăng kí</a></li>
+                                 <?php 
+                             }
+                                 ?>
+						
+						
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -46,59 +70,18 @@
 				<div class="pull-right beta-components space-left ov">
 					<div class="space10">&nbsp;</div>
 					<div class="beta-comp">
-						<form role="search" method="get" id="searchform" action="/">
-					        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+						<form role="search" method="post" id="searchform" action="{{URL::to('/search')}}">
+							{{csrf_field()}}
+					        <input type="text" value="" name="keywords_submit" id="s" placeholder="Nhập từ khóa..." />
 					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>
 					</div>
 
 					<div class="beta-comp">
 						<div class="cart">
-							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
-							<div class="beta-dropdown cart-body">
-								<div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="frontend/assets/dest/images/products/cart/1.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
-									</div>
-								</div>
+							<a href="{{URL::to('/show-cart')}}"><div><i class="fa fa-shopping-cart"></i> Giỏ hàng </div></a>
 
-								<div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="frontend/assets/dest/images/products/cart/2.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
-									</div>
-								</div>
-
-								<div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="frontend/assets/dest/images/products/cart/3.png" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">Sample Woman Top</span>
-											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">1*<span>$49.50</span></span>
-										</div>
-									</div>
-								</div>
-
-								<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
-									<div class="clearfix"></div>
-
-									<div class="center">
-										<div class="space10">&nbsp;</div>
-										<a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-									</div>
-								</div>
-							</div>
+							
 						</div> <!-- .cart -->
 					</div>
 				</div>

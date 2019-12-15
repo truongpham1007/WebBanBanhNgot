@@ -62,11 +62,21 @@
 
 							<p style="color: blue">Tùy chọn :</p>
 								<div class="space20">&nbsp;</div>
+							<div class="form-group">
+									<label>Số lượng</label>
+                                      <select name="product_qty" class="form-control input-sm m-bot15">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                             <option value="3">3</option>
+                                            <option value="4">4</option>
+                                             <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            
+                                    </select>
+							</div>
 							
 							<div class="single-item-options">
-								<option>Qty : &nbsp</option>
-									<input name="qty" type="number" min="1"  value="1" />
-
+								
 								<button class="beta-btn primary" type="submit"><p>Thêm vào giỏ hàng</p></i></button>
 								<div class="clearfix"></div>
 							</div>
