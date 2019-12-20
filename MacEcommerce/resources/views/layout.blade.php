@@ -8,6 +8,7 @@
 	<base href="{{asset('')}}">
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="frontend/assets/dest/css/font-awesome.min.css">
 	<link rel="stylesheet" href="frontend/assets/dest/vendors/colorbox/example3/colorbox.css">
@@ -72,7 +73,8 @@
 					<div class="beta-comp">
 						<form role="search" method="post" id="searchform" action="{{URL::to('/search')}}">
 							{{csrf_field()}}
-					        <input type="text" value="" name="keywords_submit" id="s" placeholder="Nhập từ khóa..." />
+					        <input type="text" id="keywords_submit" value="" name="keywords_submit" id="s" placeholder="Nhập từ khóa..." />
+					        <div id="productList"></div>
 					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>
 					</div>
@@ -176,6 +178,7 @@
 
 
 	<!-- include js files -->
+
 	<script src="frontend/assets/dest/js/jquery.js"></script>
 	<script src="frontend/assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
@@ -201,5 +204,32 @@
 		)
 	})
 	</script>
+	<script>
+$(document).ready(function(){
+
+ $('#keywords_submit').keyup(function(){ 
+        var query = $(this).val();
+        if(query != '')
+        {
+         var _token = $('input[name="_token"]').val();
+         $.ajax({
+          url:"{{ route('autocomplete.fetch') }}",
+          method:"POST",
+          data:{query:query, _token:_token},
+          success:function(data){
+           $('#productList').fadeIn();  
+                    $('#productList').html(data);
+          }
+         });
+        }
+    });
+
+    $(document).on('click', 'li', function(){  
+        $('#keywords_submit').val($(this).text());  
+        $('#productList').fadeOut();  
+    });  
+
+});
+</script>
 </body>
 </html>
