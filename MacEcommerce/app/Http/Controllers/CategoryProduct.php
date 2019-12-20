@@ -6,6 +6,7 @@ use DB;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Aler;
 session_start();
 
 class CategoryProduct extends Controller
@@ -39,14 +40,15 @@ class CategoryProduct extends Controller
 		$data['category_status'] = $request->category_product_status;
 
 		DB::table('tbl_category_product')->insert($data);
-		Session::put('message','Thêm danh mục sản phẩm thành công');
-		return Redirect::to('add-category-product');
+		
+		//Session::put('message','Thêm danh mục sản phẩm thành công');
+		return Redirect::to('add-category-product')->with('success','Thêm thành công !!');
 	}
 
 	public function unactive_category_product($category_product_id){
 		$this->AuthLogin();
 		DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
-		Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
+		//Session::put('message','Không kích hoạt danh mục sản phẩm thành công');
 		return Redirect::to('all-category-product');
 
 	}

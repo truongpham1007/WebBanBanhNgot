@@ -25,7 +25,7 @@ Route::get('/login-user','HomeController@getLogin');
 Route::get('/register','HomeController@getRegister');
 Route::get('/logout-user','HomeController@getLogout');
 Route::get('/autocomplete', 'AutocompleteController@index');
-Route::post('/autocomplete/fetch', 'AutocompleteController@fetch')->name('autocomplete.fetch');
+Route::get('/autocomplete/fetch', 'AutocompleteController@fetch')->name('autocomplete.fetch');
 
 
 //Cart
