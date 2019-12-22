@@ -26,6 +26,21 @@ Route::get('/register','HomeController@getRegister');
 Route::get('/logout-user','HomeController@getLogout');
 Route::get('/autocomplete', 'AutocompleteController@index');
 Route::get('/autocomplete/fetch', 'AutocompleteController@fetch')->name('autocomplete.fetch');
+Route::get('/forgot','HomeController@getForgot');
+Route::post('forgot', [
+	'as'=>'quen-mat-khau',
+	'uses'=>'HomeController@postQuenmatkhau'
+]);
+
+Route::get('khoiphuc/{email}/{code}', [
+	'as'=>'khoi-phuc',
+	'uses'=>'HomeController@getKhoiphuc'
+]);
+
+Route::post('khoiphuc', [
+	'as'=>'khoi-phuc',
+	'uses'=>'HomeController@postKhoiphuc'
+]);
 
 //test
 

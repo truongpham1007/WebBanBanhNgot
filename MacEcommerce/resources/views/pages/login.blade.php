@@ -49,7 +49,7 @@
 						</div>
 						<p style="color: red;">*Nếu chưa có tài khoản vui lòng <a href="{{URL::to('/register')}}">  <u style="color: blue;">đăng ký tại đây</u> </a> </p>
 						<div class="space10">&nbsp;</div>
-						<p style="color: red;"> *<a href="{{URL::to('/register')}}">  <u style="color: blue;">Quên mật khẩu</u> </a> </p>
+						<p style="color: red;"> *<a href="{{URL::to('/forgot')}}">  <u style="color: blue;">Quên mật khẩu</u> </a> </p>
 						<div class="space20">&nbsp;</div>
 						<div class="form-block">
 							<button type="submit" class="btn btn-primary">Đăng nhập</button>
