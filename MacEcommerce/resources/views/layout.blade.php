@@ -192,6 +192,7 @@
 	<script src="frontend/assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 	<script src="frontend/assets/dest/js/waypoints.min.js"></script>
 	<script src="frontend/assets/dest/js/wow.min.js"></script>
+	@yield('script')
 	<!--customjs-->
 	<script src="frontend/assets/dest/js/custom2.js"></script>
 

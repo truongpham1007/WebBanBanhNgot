@@ -16,19 +16,18 @@
 						?>
 						 @foreach($edit_category_product as $key => $edit_value)
 						<div class="inbox-details-body">
-							<form class="com-mail" action="{{URL::to('/update-category-product/'.$edit_value->category_id)}}" method="post">
-								{{ csrf_field() }}
+							
 								<div class="form-group">
 									<label>Tên danh mục</label>
-									<input type="text" name="category_product_name" value="{{$edit_value->category_name}}">
+									<input type="text" id="category_product_name" value="{{$edit_value->category_name}}">
 								</div>
 								<div class="form-group">
 									<label >Mô tả danh mục</label>
-									<textarea rows="6" name="category_product_desc" > {{$edit_value->category_desc}}</textarea>
+									<textarea rows="6" id="category_product_desc" > {{$edit_value->category_desc}}</textarea>
 								</div>								
+								<input type="hidden" id="category_product_id" value="{{$edit_value->category_id}}">
+								<input type="submit" id="btn_update_cate" value="Cập nhật danh mục "> 
 							
-								<input type="submit" value="Cập nhật danh mục "> 
-							</form>
 						</div>
 						@endforeach
 					</div>
@@ -36,3 +35,40 @@
     	
           <div class="clearfix"> </div>  
 @endsection
+@section('script')
+	<script>
+		$(document).ready(function(){
+		 
+		  $("#btn_update_cate").click(function(){
+		   
+		    var cate_name = $("#category_product_name").val();
+		    var cate_desc = $("#category_product_desc").val();
+		    var cate_id = $("#category_product_id").val();
+		    if(cate_name == '' || cate_desc == ''){
+		    	swal("Lỗi!", "Vui lòng điền đầy đủ thông tin!", "error", {
+  					button: "Yes!",
+				});
+		    }
+		    
+
+		    $.ajax({
+		      url: "{{route('update-cate')}}",
+		      method: "GET",
+		      data:{cate_name:cate_name, cate_desc:cate_desc, cate_id:cate_id},
+		      
+		      success:function(data){
+		      	swal("Hoàn tất!", "Thêm thành công loại sản phẩm!", "success", {
+  					button: "Yes!",
+				});
+		      }
+		    });
+		  });
+
+		 var auto_refresh = setInterval(
+		    function(){
+		      $('#category').load('add.brand').fadeIn("slow");
+		    },100);
+		});
+	</script>
+
+@endsection 

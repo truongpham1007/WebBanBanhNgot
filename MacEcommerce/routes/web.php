@@ -76,7 +76,7 @@ Route::get('/unactive-category-product/{category_product_id}','CategoryProduct@u
 Route::get('/active-category-product/{category_product_id}','CategoryProduct@active_category_product');
 
 Route::get('/save-category-product','CategoryProduct@save_category_product')->name('save-category-product');
-Route::post('/update-category-product/{category_product_id}','CategoryProduct@update_category_product');
+Route::get('/update-category-product','CategoryProduct@update_cate')->name('update-cate');
 
 //Brand Controller
 
