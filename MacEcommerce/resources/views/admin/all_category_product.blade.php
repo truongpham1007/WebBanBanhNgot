@@ -7,16 +7,8 @@
                         <div class="tab-pane active text-style" id="tab1">
                             <div class="mailbox-border">
 
-                                <table class="table tab-border">
-                                    <?php
-                                    $message = Session::get('message');
-                                     if($message){
-                                     echo '<div class="alert alert-success alert-dismissable">';
-                                     echo '<span>'.$message.'</span>';
-                                     echo '</div>';
-                                     Session::put('message',null);
-                                     }
-                                     ?>
+                                <table class="table tab-border" id="table-cate">
+                                   
                                     
                                     <tbody>
                                         <tr>
@@ -24,7 +16,9 @@
                                             <th>Tên danh mục</th>
                                             <th>Trạng thái</th>
                                             <th>Desc</th>
-                                            <th>Thao tác</th>                                                                                 
+                                            <th>Thao tác</th>  
+                                         <div id="divCheckbox" style="visibility: hidden; display:inline;"> {{$row=1}}</div>
+                                                                               
                                         </tr>
                                          @foreach($all_category_product as $key => $cate_pro)
                                         <tr class="unread checked">   
@@ -54,11 +48,13 @@
                                                  <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
                                                 <span>Sửa</span></a>
                                                 <span>/</span>
-                                                <a  onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
+                                                <a  id="btn_remove_brand"  onclick="RemoveCate({{$row}},{{$cate_pro->category_id}})" href="javascrip:void(0)" class="active styling-edit" ui-toggle-class="">
                                                 <span>Xóa</span>
                                                 </a>
                                             </td>
                                         </tr>
+                                         <div id="divCheckbox" style="visibility: hidden; display:inline;"> {{$row++}}</div>
+
 
                                        
                                         @endforeach
@@ -74,3 +70,21 @@
                     <div class="clearfix"> </div>
                 </div>
 @endsection
+@section('script')
+    <script>
+        function RemoveCate(idRow,idCate){
+           $.ajax({
+            url: "{{route('delete-category-product')}}",
+            method: "GET",
+            data: {idCate:idCate},
+            success: function(data){
+                swal("Hoàn tất!", "Xóa thành công thương hiệu!", "success", {
+                    button: "Yes!",
+                });
+                document.getElementById('table-cate').deleteRow(idRow);
+            }
+           })
+        }
+    </script>
+    
+@endsection 

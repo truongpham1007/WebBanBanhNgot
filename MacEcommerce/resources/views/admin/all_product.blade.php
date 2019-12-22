@@ -8,15 +8,9 @@
                             <div class="mailbox-border">
 
                                 <table class="table tab-border">
-                                    <?php
-                                    $message = Session::get('message');
-                                     if($message){
-                                     echo '<div class="alert alert-success alert-dismissable">';
-                                     echo '<span>'.$message.'</span>';
-                                     echo '</div>';
-                                     Session::put('message',null);
-                                     }
-                                     ?>
+                                
+                                    
+                                     <div id="divCheckbox" style="visibility: hidden; display:inline;"> {{$row=1}}</div>
                                     
                                    
                                         <tr>
@@ -57,11 +51,12 @@
                                                     <a href="{{URL::to('/edit-product/'.$pro->product_id)}}" class="active styling-edit" ui-toggle-class="">
                                                     <span>Sửa</span></a>
                                                     <span>/</span>
-                                                    <a  onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-product/'.$pro->category_id)}}" class="active styling-edit" ui-toggle-class="">
+                                                    <a  id="btn_remove_product"  onclick="RemoveProduct({{$row}},{{$pro->product_id}})" href="javascrip:void(0)" class="active styling-edit" ui-toggle-class="">
                                                     <span>Xóa</span>
                                                 </a>
                                             </td>
                                         </tr>
+                                        <div id="divCheckbox" style="visibility: hidden; display:inline;"> {{$row++}}</div>
                                     @endforeach
                                     </tbody>                               
                                 </table>         
@@ -72,3 +67,22 @@
                     <div class="clearfix"> </div>
                 </div>
 @endsection
+@section('script')
+    <script>
+        function RemoveProduct(idRow,idPro){
+           $.ajax({
+            url: "{{route('delete-product')}}",
+            method: "GET",
+            data: {idPro:idPro},
+            success: function(data){
+                swal("Hoàn tất!", "Xóa sản phẩm thành công!", "success", {
+                    button: "Yes!",
+                });
+                document.getElementById('table-cate').deleteRow(idRow);
+            }
+           })
+        }
+    </script>
+    
+    
+@endsection 

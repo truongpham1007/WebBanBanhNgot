@@ -219,7 +219,6 @@ $(document).ready(function(){
           method:"GET",
           data:{query:query, _token:_token},
           success:function(data){
-
            			$('#productList').fadeIn();  
                     $('#productList').html(data);
           }
@@ -228,8 +227,15 @@ $(document).ready(function(){
     });
 
     $(document).on('click', 'li', function(){  
-        $('#keywords_submit').val($(this).text());  
-        $('#productList').fadeOut();  
+        $.ajax({
+          url:"/search",
+          method:"GET",
+          data:{query:query, _token:_token},
+          success:function(data){
+           			$('#productList').fadeIn();  
+                    $('#productList').html(data);
+          }
+         });
     });  
 
 });

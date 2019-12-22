@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 // User
 Route::get('/home','HomeController@getIndex');
-Route::post('/search','HomeController@search');
+Route::post('/search','HomeController@search')->name('search');
 Route::get('/product-type','HomeController@getProductType');
 Route::get('/product-detail/{product_id}','ProductController@getProductDetail');
 Route::get('/contact','HomeController@getContact');
@@ -26,6 +26,8 @@ Route::get('/register','HomeController@getRegister');
 Route::get('/logout-user','HomeController@getLogout');
 Route::get('/autocomplete', 'AutocompleteController@index');
 Route::get('/autocomplete/fetch', 'AutocompleteController@fetch')->name('autocomplete.fetch');
+
+//test
 
 
 //Cart
@@ -69,19 +71,20 @@ Route::post('/admin-dashboard','AdminController@getLogin');
 Route::get('/add-category-product','CategoryProduct@add_category_product');
 Route::get('/all-category-product','CategoryProduct@all_category_product');
 Route::get('/edit-category-product/{category_product_id}','CategoryProduct@edit_category_product');
-Route::get('/delete-category-product/{category_product_id}','CategoryProduct@delete_category_product');
+Route::get('/delete-category-product','CategoryProduct@delete_category_product')->name('delete-category-product');
 Route::get('/unactive-category-product/{category_product_id}','CategoryProduct@unactive_category_product');
 Route::get('/active-category-product/{category_product_id}','CategoryProduct@active_category_product');
 
-Route::post('/save-category-product','CategoryProduct@save_category_product');
+Route::get('/save-category-product','CategoryProduct@save_category_product')->name('save-category-product');
 Route::post('/update-category-product/{category_product_id}','CategoryProduct@update_category_product');
 
 //Brand Controller
 
-Route::get('/add-brand-product','BrandController@add_brand_product');
+Route::get('/add-brand-product','BrandController@add_brand_product')->name('add.brand');
 Route::get('/edit-brand-product/{brand_product_id}','BrandController@edit_brand_product');
-Route::get('/delete-brand-product/{brand_product_id}','BrandController@delete_brand_product');
+Route::get('/delete-brand-product','BrandController@delete_brand_product')->name('delete-brand-product');
 Route::get('/all-brand-product','BrandController@all_brand_product');
+Route::get('postbrandAjax', 'BrandController@PostBrand')->name('postbrandAjax');
 
 Route::get('/unactive-brand-product/{brand_product_id}','BrandController@unactive_brand_product');
 Route::get('/active-brand-product/{brand_product_id}','BrandController@active_brand_product');
@@ -92,13 +95,13 @@ Route::post('/update-brand-product/{brand_product_id}','BrandController@update_b
 //Product
 Route::get('/add-product','ProductController@add_product');
 Route::get('/edit-product/{product_id}','ProductController@edit_product');
-Route::get('/delete-product/{product_id}','ProductController@delete_product');
+Route::get('/delete-product','ProductController@delete_product')->name('delete-product');
 Route::get('/all-product','ProductController@all_product');
 
 Route::get('/unactive-product/{product_id}','ProductController@unactive_product');
 Route::get('/active-product/{product_id}','ProductController@active_product');
 
-Route::post('/save-product','ProductController@save_product');
+Route::get('/save-product','ProductController@save_product')->name('save-product');
 Route::post('/update-product/{product_id}','ProductController@update_product');
 
 

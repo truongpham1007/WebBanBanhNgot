@@ -39,33 +39,35 @@ class ProductController extends Controller
 
     }
     public function save_product(Request $request){
-        $this->AuthLogin();
-    	$data = array();
-    	$data['product_name'] = $request->product_name;
-    	$data['product_promotion_price'] = $request->product_promotion_price;
-        $data['product_unit_price'] = $request->product_unit_price;
-    	$data['product_desc'] = $request->product_desc;
-        $data['product_content'] = $request->product_content;
-        $data['category_id'] = $request->product_cate;
-        $data['brand_id'] = $request->product_brand;
-        $data['product_status'] = $request->product_status;
-        $data['product_image'] = $request->product_image;
-        //$get_image = $request->file('product_image');
-      
-        /*if($get_image){
-            $get_name_image = $get_image->getClientOriginalName();
-            $name_image = current(explode('.',$get_name_image));
-            $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
-            $get_image->move('public/uploads/product',$new_image);
-            $data['product_image'] = $new_image;
-            DB::table('tbl_product')->insert($data);
-            Session::put('message','Thêm sản phẩm thành công');
-            return Redirect::to('add-product');
-        }
-        $data['product_image'] = '';*/
-    	DB::table('tbl_product')->insert($data);
-    	Session::put('message','Thêm sản phẩm thành công');
-    	return Redirect::to('add-product');
+        $this->AuthLogin();  	
+    	$product_name = $request->product_name;
+    	$product_promotion_price= $request->product_promotion_price;
+        $product_unit_price = $request->product_unit_price;
+    	$product_desc = $request->product_desc;
+        $product_content = $request->product_content;
+        $category_id = $request->category_id;
+        $brand_id = $request->brand_id;
+        $product_status = $request->product_status;
+        $product_image = $request->product_image;
+        
+    	$add_product = DB::table('tbl_product')->insert([
+        'product_name' => $product_name,
+        'product_promotion_price'=> $product_promotion_price,
+        'product_unit_price' => $product_unit_price,
+        'product_desc' => $product_desc,
+        'product_content' => $product_content,
+        'category_id' => $category_id,
+        'brand_id' => $brand_id,
+        'product_status' => $product_status,
+        'product_image' => $product_image,
+     
+      ]);
+         if($add_product){
+        echo "done";
+      }else{
+        echo "error";
+      }
+    	
     }
     public function unactive_product($product_id){
         $this->AuthLogin();
@@ -104,26 +106,16 @@ class ProductController extends Controller
         $data['product_status'] = $request->product_status;
         $data['product_image'] = $request->product_image;
         
-        /*if($get_image){
-                    $get_name_image = $get_image->getClientOriginalName();
-                    $name_image = current(explode('.',$get_name_image));
-                    $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
-                    $get_image->move('public/uploads/product',$new_image);
-                    $data['product_image'] = $new_image;
-                    DB::table('tbl_product')->where('product_id',$product_id)->update($data);
-                    Session::put('message','Cập nhật sản phẩm thành công');
-                    return Redirect::to('all-product');
-        }*/
-            
+    
         DB::table('tbl_product')->where('product_id',$product_id)->update($data);
         Session::put('message','Cập nhật sản phẩm thành công');
         return Redirect::to('all-product');
     }
-    public function delete_product($product_id){
+    
+    public function delete_product(Request $req){
         $this->AuthLogin();
-        DB::table('tbl_product')->where('product_id',$product_id)->delete();
-        Session::put('message','Xóa sản phẩm thành công');
-        return Redirect::to('all-product');
+        DB::table('tbl_product')->where('product_id',$req->idPro)->delete();
+        
     }
     //End Admin Page
     public function details_product($product_slug){

@@ -11,6 +11,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link rel="shortcut icon" href="//theme.hstatic.net/1000337134/1000446075/14/favicon.png?v=233" type="image/png" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -226,7 +228,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		          </ul>
 		        </li>
 
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-paperclip"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a><i class="fa fa-paperclip"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
 		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-product')}}">Thêm </a>		              
 		            </li>
@@ -235,7 +237,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </li>
 
 		         
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-paperclip"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a ><i class="fa fa-list-alt"></i><span>Hóa đơn</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
 		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/manage-order')}}">Liệt kê </a>		              
 		            </li>
@@ -274,11 +276,13 @@ $(".sidebar-icon").click(function() {
                 toggle = !toggle;
             });
 </script>
+
 <!--scrolling js-->
 		<script src="backend/js/jquery.nicescroll.js"></script>
 		<script src="backend/js/scripts.js"></script>
 		<!--//scrolling js-->
 <script src="backend/js/bootstrap.js"> </script>
+@yield('script')
 <!-- mother grid end here-->
 </body>
 </html>                     

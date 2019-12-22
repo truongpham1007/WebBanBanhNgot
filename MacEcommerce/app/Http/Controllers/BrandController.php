@@ -31,7 +31,7 @@ class BrandController extends Controller
 
 
     }
-    public function save_brand_product(Request $request){
+    /*public function save_brand_product(Request $request){
         $this->AuthLogin();
     	$data = array();
     	$data['brand_name'] = $request->brand_product_name;
@@ -41,6 +41,23 @@ class BrandController extends Controller
     	DB::table('tbl_brand')->insert($data);
     	Session::put('message','Thêm thương hiệu sản phẩm thành công');
     	return Redirect::to('add-brand-product');
+    }*/
+    function PostBrand(Request $request){
+       $cat_name = $request->cat_name;
+       $cat_desc = $request->cat_desc;
+       $cat_stt = $request->cat_stt;
+       $add_cat = DB::table('tbl_brand')->insert([
+        'brand_name' => $cat_name,
+        'brand_desc' => $cat_desc,
+        'brand_status' => $cat_stt,
+      
+      ]);
+      if($add_cat){
+        echo "done";
+      }else{
+        echo "error";
+      }
+      
     }
     public function unactive_brand_product($brand_product_id){
         $this->AuthLogin();
@@ -74,11 +91,10 @@ class BrandController extends Controller
         Session::put('message','Cập nhật thương hiệu sản phẩm thành công');
         return Redirect::to('all-brand-product');
     }
-    public function delete_brand_product($brand_product_id){
+    public function delete_brand_product(Request $request){
         $this->AuthLogin();
-        DB::table('tbl_brand')->where('brand_id',$brand_product_id)->delete();
-        Session::put('message','Xóa thương hiệu sản phẩm thành công');
-        return Redirect::to('all-brand-product');
+        DB::table('tbl_brand')->where('brand_id',$request->idBrand)->delete();
+       echo 1;
     }
 
     //End Function Admin Page
