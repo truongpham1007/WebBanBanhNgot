@@ -51,7 +51,8 @@
 								<div class="clearfix"></div>
 							</div>
 
-							<div class="row">
+							<div id="showsearchAjax">
+								<div class="row">
 								@foreach($search_product as $all => $product)
 
 								<div class="col-sm-4">
@@ -95,6 +96,7 @@
 									</div>
 								</div>
 								@endforeach
+							</div>
 							</div>
 						</div> <!-- .beta-products-list -->
 

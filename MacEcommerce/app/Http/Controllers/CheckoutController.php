@@ -89,6 +89,8 @@ class CheckoutController extends Controller
         $order_data['payment_id'] = $payment_id;
         $order_data['order_total'] = Cart::total();
         $order_data['order_status'] = 'Đang chờ xử lý';
+        $order_data['create_at'] = '23/12/2019';
+
         $order_id = DB::table('tbl_order')->insertGetId($order_data);
 
         //insert order_details
@@ -151,6 +153,16 @@ class CheckoutController extends Controller
         ->orderby('tbl_order.order_id','desc')->get();
         $manager_order  = view('admin.manage_order')->with('all_order',$all_order);
         return view('admin_layout')->with('admin.manage_order', $manager_order);
+    }
+     public function manage_user_order(){
+        
+        $this->AuthLogin();
+        $all_order = DB::table('tbl_order')
+        ->join('users','users.id','=','tbl_order.id')
+        ->select('tbl_order.*','users.name')
+        ->orderby('tbl_order.order_id','desc')->get();
+        $manager_order  = view('pages.history')->with('all_order',$all_order);
+        return view('layout')->with('pages.history', $manager_order);
     }
     public function pass_order(){
         

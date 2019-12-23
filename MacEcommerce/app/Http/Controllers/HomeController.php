@@ -43,6 +43,56 @@ class HomeController extends Controller
         return view('pages.search')->with('category',$cate_product)->with('brand',$brand_product)->with('search_product',$search_product);
 
     }
+
+    public function getTimkiemAjax(Request $req){
+        $sanpham = DB::table('tbl_product')->where('product_id', $req->value)->get();
+        $output = '<div class="row">';
+        foreach($sanpham as $product)
+        {
+            $output .= '<div class="col-sm-4">
+                <div class="single-item">';
+                    if($product->product_promotion_price != 0)
+                    $output .= '<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>';
+                $output .='
+                    <div class="single-item-header">
+                        <a href="/WebBanBanhNgot/MacEcommerce/public/product-detail/"'.$product->product_id.'"><img src="'.$product->product_image.'" alt=""
+                            height="320px" width="270px"></a>
+                    </div>
+                    <div class="space10">&nbsp;</div>
+                    <div class="single-item-body">
+                        <p class="single-item-title">'.$product->product_name.'</p>
+                        <div class="space10">&nbsp;</div>
+                        <p class="single-item-price">';
+                                                            
+                        if($product->product_promotion_price==0)
+                            $output .= '<span class="flash-sale" style="font-size: 25px;">'.number_format($product->product_unit_price).'Đ</span>
+                            <div class="space35">&nbsp;</div>';
+
+                        else
+                            $output .= '<span class="flash-del" style="font-size: 25px;">'.number_format($product->product_unit_price).' Đ</span>
+                            
+                            <div class="space10">&nbsp;</div>
+                            <span class="flash-sale" style="font-size: 25px;">
+                            '.number_format($product->product_promotion_price).' Đ</span>';
+                        $output .= 
+                        '</p>
+
+                        <div class="space20">&nbsp;</div>
+                    </div>
+                    <div class="single-item-caption">
+                        <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+                        <a class="beta-btn primary" href="/WebBanBanhNgot/MacEcommerce/public/product-detail/'.$product->product_id.'">Chi tiết<i class="fa fa-chevron-right"></i></a>
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <div class="space20">&nbsp;</div>
+                </div>
+            </div>';
+        }
+        $output .= '</div>';
+        echo $output;
+    }
+
     public function getContact(){
         return view('pages.contact');
     }

@@ -25,7 +25,7 @@ class AutocompleteController extends Controller
       foreach($data as $row)
       {
        $output .= '
-       <li><a href="#">'.$row->product_name.'</a></li>
+       <li value="'.$row->product_id.'"><a href="javascript:void(0)" >'.$row->product_name.'</a></li>
        ';
       }
       $output .= '</ul>';

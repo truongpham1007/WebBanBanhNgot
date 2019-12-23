@@ -17,6 +17,7 @@ Route::get('/', function () {
 // User
 Route::get('/home','HomeController@getIndex');
 Route::post('/search','HomeController@search')->name('search');
+Route::get('timkiemAjax', 'HomeController@getTimkiemAjax')->name('timkiemAjax');
 Route::get('/product-type','HomeController@getProductType');
 Route::get('/product-detail/{product_id}','ProductController@getProductDetail');
 Route::get('/contact','HomeController@getContact');
@@ -67,6 +68,7 @@ Route::post('/save-comment','CommentController@save_comment');
 
 //Order
 Route::get('/manage-order','CheckoutController@manage_order');
+Route::get('/manage-user-order','CheckoutController@manage_user_order');
 Route::get('/pass-order','CheckoutController@pass_order');
 Route::get('/view-order/{orderId}','CheckoutController@view_order');
 Route::get('/update-order/{orderId}','CheckoutController@update_order');

@@ -39,7 +39,7 @@
                                    $customer_id = Session::get('customer_id');
                                    if($customer_id!=NULL){ 
                                  ?>
-                                 <li><a ><i class="fa fa-user"></i>
+                                 <li><a href="{{URL::to('/manage-user-order')}}" ><i class="fa fa-user"></i>
                                  <?php
 														$name = Session::get('customer_name');
 														if($name){
@@ -228,13 +228,16 @@ $(document).ready(function(){
     });
 
     $(document).on('click', 'li', function(){  
+    	var value = $(this).val();
+    	var _token = $('input[name="_token"]').val();
         $.ajax({
-          url:"/search",
+          url:"{{route('timkiemAjax')}}",
           method:"GET",
-          data:{query:query, _token:_token},
+          data:{value:value, _token:_token},
           success:function(data){
-           			$('#productList').fadeIn();  
-                    $('#productList').html(data);
+           	$("#showsearchAjax").fadeOut();
+           	$("#showsearchAjax").fadeIn();
+           	$("#showsearchAjax").html(data);
           }
          });
     });  
