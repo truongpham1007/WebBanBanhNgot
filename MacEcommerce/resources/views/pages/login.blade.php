@@ -39,21 +39,23 @@
 				?>
 					<div class="space30">&nbsp;</div>
 						
-						<div class="form-block">
-							<label for="email" style="color: red;">Email*</label>
-							<input type="email" name="email_account" required>
-						</div>
-						<div class="form-block">
-							<label for="phone" style="color: red;">Mật khẩu*</label>
-							<input type="password" name="password_account" required>
-						</div>
-						<p style="color: red;">*Nếu chưa có tài khoản vui lòng <a href="{{URL::to('/register')}}">  <u style="color: blue;">đăng ký tại đây</u> </a> </p>
+						<fieldset>
+                                
+                                <div class="form-group">
+                                    <input class="form-control"  placeholder="E-mail" name="email_account" type="email">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Mật khẩu" name="password_account" type="password" autofocus>
+                                </div>
+                                
+                               
+                                <p style="color: red;">*Nếu chưa có tài khoản vui lòng <a href="{{URL::to('/register')}}">  <u style="color: blue;">đăng ký tại đây</u> </a> </p>
 						<div class="space10">&nbsp;</div>
 						<p style="color: red;"> *<a href="{{URL::to('/forgot')}}">  <u style="color: blue;">Quên mật khẩu</u> </a> </p>
 						<div class="space20">&nbsp;</div>
-						<div class="form-block">
-							<button type="submit" class="btn btn-primary">Đăng nhập</button>
-						</div>
+						 <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                            </fieldset>
+						
 						
 					</div>
 					<div class="col-sm-3"></div>

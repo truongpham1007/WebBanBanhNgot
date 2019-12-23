@@ -13,7 +13,10 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-
+	<?php
+            $customer_id = Session::get('customer_id');
+              
+            ?>
 	<div class="container">
 		<div id="content">
 			<div class="row">
@@ -95,7 +98,35 @@
 							<p>{{$value->product_content}}</p>
 						</div>
 						<div class="panel" id="tab-reviews">
-							<p>No Reviews</p>
+							@foreach($all_comment as $cm => $comment)
+								<div class="card card-inner">
+            	    <div class="card-body">
+            	        <div class="row">
+                    	    
+                    	    <div class="col-md-10">
+                    	       <p style=" font-size: 15px;"><b style="color: blue;">{{$comment-> name}} :</b>
+                    	       	{{$comment->comment_desc}}</p>
+                    	       <div class="space10">&nbsp;</div>
+                    	   
+                    	        
+                    	        <p>
+                    	            <a class="float-right btn btn-outline-primary ml-2">  <i class="fa fa-reply"></i> Reply</a>
+                    	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                    	       </p>
+                    	    </div>
+            	        </div>
+            	    </div>
+	            </div>
+							<!-- <p ><b>{{$comment-> name}} :&nbsp;&nbsp; </b>{{$comment->comment_desc}}</p> -->
+							<div class="space30">&nbsp;</div>
+							@endforeach
+							<form action="{{URL::to('/save-comment')}}" method="POST">
+								{{csrf_field()}}
+								<input type="hidden" name="id" value="{{$customer_id}}">
+								<input type="hidden" name="product_id" value="{{$value->product_id}}">
+								<textarea rows="" name="desc"></textarea>
+								<button class="beta-btn primary" type="submit"><p>Comment</p></i></button>
+							</form>
 						</div>
 						@endforeach
 					</div>

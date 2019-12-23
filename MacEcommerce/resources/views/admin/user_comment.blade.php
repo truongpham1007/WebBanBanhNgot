@@ -15,26 +15,24 @@
                                     <tbody>
                                         <tr>
                                             
-                                            <th>Tên User</th>
-                                            <th>Email</th>
+                                            <th>Tên phẩm</th>
+                                            <th>Comment</th>
                                             <th>Thao tác</th>                                                                                 
                                         </tr>
-                                         @foreach($all_user as $key => $cate_pro)
+                                         @foreach($all as $key => $cate_pro)
                                         <tr class="unread checked">   
                                             <td>
-                                                {{$cate_pro->name}}
+                                                {{$cate_pro->product_name}}
                                             </td>                                                                                    
                                             <td>
-                                                {{$cate_pro->email}}
+                                                {{$cate_pro->comment_desc}}
                                             </td>
                                            
                                             <td>
-                                                <a href="{{URL::to('/user-comment/'.$cate_pro->id)}}" class="active styling-edit" ui-toggle-class="">
-                                                    <span>Quản lý comment</span></a>
-                                                 <span>/</span>
-                                                <a  onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-user/'.$cate_pro->id)}}" class="active styling-edit" ui-toggle-class="">
+                                                
+                                                <a  onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-user-comment/'.$cate_pro->id)}}" class="active styling-edit" ui-toggle-class="">
                                                 <span>Xóa</span>
-                                                </a>
+                                                </a> 
                                             </td>
                                         </tr>
 

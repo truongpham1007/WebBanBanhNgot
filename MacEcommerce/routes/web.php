@@ -62,6 +62,8 @@ Route::post('/login-customer','CheckoutController@login_customer');
 Route::get('/checkout','CheckoutController@checkout');
 Route::get('/payment','CheckoutController@payment');
 Route::post('/save-checkout-customer','CheckoutController@save_checkout_customer');
+//Comment
+Route::post('/save-comment','CommentController@save_comment');
 
 //Order
 Route::get('/manage-order','CheckoutController@manage_order');
@@ -85,6 +87,8 @@ Route::get('/all-contact','BrandController@all_contact');
 Route::get('/delete-contact/{id}','BrandController@delete_contact');
 //user
 Route::get('/all-user','BrandController@all_user');
+Route::get('/user-comment/{id}','CommentController@user_comment');
+Route::get('/delete-user-comment/{id}','CommentController@delete_user_comment');
 Route::get('/delete-user/{id}','BrandController@delete_user');
 
 

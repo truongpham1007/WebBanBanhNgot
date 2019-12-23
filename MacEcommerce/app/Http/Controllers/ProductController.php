@@ -117,30 +117,7 @@ class ProductController extends Controller
         DB::table('tbl_product')->where('product_id',$req->idPro)->delete();
         
     }
-    //End Admin Page
-    public function details_product($product_slug){
-        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 
-        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get(); 
 
-        $details_product = DB::table('tbl_product')
-        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
-        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
-        ->where('tbl_product.product_slug',$product_slug)->get();
-
-        foreach($details_product as $key => $value){
-            $category_id = $value->category_id;
-        }
-       
-
-        $related_product = DB::table('tbl_product')
-        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
-        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
-        ->where('tbl_category_product.category_id',$category_id)->whereNotIn('tbl_product.product_slug',[$product_slug])->get();
-
-
-        return view('pages.sanpham.show_details')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product)->with('relate',$related_product);
-
-    }
     //end admin
     public function getProductDetail($product_id){
         $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 
@@ -158,14 +135,20 @@ class ProductController extends Controller
         $all_product = DB::table('tbl_product')->where('product_status',0)->orderby('product_id','desc')->limit(4)->get(); 
         
        
+       $all_comment = DB::table('tbl_comments')->join('users','users.id','=','tbl_comments.id')->where('tbl_comments.product_id',$product_id)->get(); 
+       //$id = $all_comment->id
+      // $user_name = DB::table('users')->where('id',$id)->first();
+       /*dd($product_id);
+       exit(0);*/
 
+       
        $related_product = DB::table('tbl_product')
         ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('tbl_category_product.category_id',$category_id)->get();
 
 
-        return view('pages.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product)->with('related',$related_product)->with('sale_product',$sale_product)->with('all_product',$all_product);
+        return view('pages.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product)->with('related',$related_product)->with('sale_product',$sale_product)->with('all_product',$all_product)->with('all_comment',$all_comment);
 
     }
 }
