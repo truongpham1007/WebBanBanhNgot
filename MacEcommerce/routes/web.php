@@ -20,6 +20,7 @@ Route::post('/search','HomeController@search')->name('search');
 Route::get('/product-type','HomeController@getProductType');
 Route::get('/product-detail/{product_id}','ProductController@getProductDetail');
 Route::get('/contact','HomeController@getContact');
+Route::post('/add-contacts','HomeController@addContact');
 Route::get('/about-us','HomeController@getAboutUs');
 Route::get('/login-user','HomeController@getLogin');
 Route::get('/register','HomeController@getRegister');
@@ -64,7 +65,9 @@ Route::post('/save-checkout-customer','CheckoutController@save_checkout_customer
 
 //Order
 Route::get('/manage-order','CheckoutController@manage_order');
+Route::get('/pass-order','CheckoutController@pass_order');
 Route::get('/view-order/{orderId}','CheckoutController@view_order');
+Route::get('/update-order/{orderId}','CheckoutController@update_order');
 Route::get('/delete-order/{order_id}','CheckoutController@delete_order');
 //show category 
 Route::get('/category-type/{category_id}','CategoryProduct@showCategoryProduct');
@@ -78,9 +81,15 @@ Route::get('/brand-type/{brand_id}','BrandController@showBrandProduct');
 Route::get('/login','AdminController@getIndex');
 Route::get('/dashboard','AdminController@getDashboard');
 Route::get('/logout','AdminController@Logout');
+Route::get('/all-contact','BrandController@all_contact');
+Route::get('/delete-contact/{id}','BrandController@delete_contact');
+//user
+Route::get('/all-user','BrandController@all_user');
+Route::get('/delete-user/{id}','BrandController@delete_user');
 
 
 Route::post('/admin-dashboard','AdminController@getLogin');
+
 
 // category-product
 Route::get('/add-category-product','CategoryProduct@add_category_product');

@@ -47,7 +47,7 @@
                                                 {{$cate_pro->brand_desc}}
                                             </td>
                                             <td>
-                                                 <a href="#" class="active styling-edit" ui-toggle-class="">
+                                                  <a href="{{URL::to('/edit-brand-product/'.$cate_pro->brand_id)}}" class="active styling-edit" ui-toggle-class="">
                                                 <span>Sửa</span></a>
                                                 <span>/</span>
                                                 <a  id="btn_remove_brand"  onclick="RemoveBrand({{$row}},{{$cate_pro->brand_id}})" href="javascrip:void(0)" class="active styling-edit" ui-toggle-class="">

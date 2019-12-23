@@ -31,12 +31,12 @@
 						<?php
 					$message = Session::get('message');
 					if($message){
-					
+					echo '<div class="alert alert-danger alert-dismissable">';
 					echo '<span>'.$message.'</span>';
-					
+					echo '</div>';
 					Session::put('message',null);
 					}
-					?>
+				?>
 					<div class="space30">&nbsp;</div>
 						
 						<div class="form-block">

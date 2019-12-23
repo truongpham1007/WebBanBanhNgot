@@ -187,3 +187,42 @@
 		</div> <!-- #content -->
 	</div> <!-- .container -->
 @endsection
+
+@section('script')
+	<script>
+		$(document).ready(function(){
+		 
+		  $("#btn").click(function(){
+		    var cat_name = $("#brand_product_name").val();
+		    var cat_desc = $("#brand_product_desc").val();
+		    var cat_stt = $("#brand_product_status").val();
+		    if(cat_name == '' || cat_desc == '' || cat_stt==''){
+		    	swal("Lỗi!", "Vui lòng điền đầy đủ thông tin!", "error", {
+  					button: "Yes!",
+				});
+		    }
+		    else{
+		    	$.ajax({
+		      url: "{{route('postbrandAjax')}}",
+		      method: "GET",
+		      data:{cat_name:cat_name, cat_desc:cat_desc, cat_stt:cat_stt},
+		      
+		      success:function(data){
+		      	swal("Hoàn tất!", "Thêm thành công thương hiệu!", "success", {
+  					button: "Yes!",
+				});
+		      }
+		    });
+		    }
+
+		    
+		  });
+
+		 var auto_refresh = setInterval(
+		    function(){
+		      $('#category').load('add.brand').fadeIn("slow");
+		    },100);
+		});
+	</script>
+	
+@endsection 

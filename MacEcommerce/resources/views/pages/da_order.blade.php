@@ -26,7 +26,7 @@
                                               <th>Hiển thị</th>                                                                               
                                         </tr>
                                          @foreach($all_order as $key => $cate_pro)
-                                         @if($cate_pro->order_status == 'Đang chờ xử lý')
+                                         @if($cate_pro->order_status == 'Đã giao hàng')
                                         <tr class="unread checked">   
                                             <td>
                                                 {{$cate_pro->name}}
@@ -43,8 +43,9 @@
                                                  <a href="{{URL::to('/view-order/'.$cate_pro->order_id)}}" class="active styling-edit" ui-toggle-class="">
                                                 <span>Chi tiết</span></a>
                                                 <span>/</span>
-                                                <a   href="{{URL::to('/update-order/'.$cate_pro->order_id)}}" class="active styling-edit" ui-toggle-class="">
-                                                <span>Đã giao hàng</span>
+                                               <a  onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-order/'.$cate_pro->order_id)}}" class="active styling-edit" ui-toggle-class="">
+                                                <span>Xóa</span>
+                                                </a>
                                                 </a>
                                             </td>
                                         </tr>
@@ -61,16 +62,12 @@
                        
                     </div>
                     <div class="clearfix"> </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
-                <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
 @endsection

@@ -31,17 +31,18 @@ class BrandController extends Controller
 
 
     }
-    /*public function save_brand_product(Request $request){
-        $this->AuthLogin();
-    	$data = array();
-    	$data['brand_name'] = $request->brand_product_name;
-    	$data['brand_desc'] = $request->brand_product_desc;
-    	$data['brand_status'] = $request->brand_product_status;
-
-    	DB::table('tbl_brand')->insert($data);
-    	Session::put('message','Thêm thương hiệu sản phẩm thành công');
-    	return Redirect::to('add-brand-product');
-    }*/
+    public function all_contact(){
+         $this->AuthLogin();
+        $all_contact = DB::table('contacts')->get();
+        $manager_contact  = view('admin.all_contact')->with('all_contact',$all_contact);
+        return view('admin_layout')->with('admin.all_contact', $manager_contact);
+    }
+     public function all_user(){
+         $this->AuthLogin();
+        $all_user = DB::table('users')->get();
+        $manager_user  = view('admin.all_user')->with('all_user',$all_user);
+        return view('admin_layout')->with('admin.all_user', $manager_user);
+    }
     function PostBrand(Request $request){
        $cat_name = $request->cat_name;
        $cat_desc = $request->cat_desc;
@@ -96,8 +97,20 @@ class BrandController extends Controller
         DB::table('tbl_brand')->where('brand_id',$request->idBrand)->delete();
        echo 1;
     }
+     public function delete_contact($id){
+        $this->AuthLogin();
+        DB::table('contacts')->where('id',$id)->delete();
+        
+        return redirect()->back()->with(['thanhcong' => 'Xóa thành công!!!']);
+    }
+    public function delete_user($id){
+        $this->AuthLogin();
+        DB::table('users')->where('id',$id)->delete();
+        
+        return redirect()->back()->with(['thanhcong' => 'Xóa thành công!!!']);
+    }
 
-    //End Function Admin Page
+    //End Function Admin Pagesa
      
      public function show_brand_home($brand_slug){
         $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 

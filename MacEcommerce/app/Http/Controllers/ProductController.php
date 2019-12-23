@@ -143,7 +143,7 @@ class ProductController extends Controller
     }
     //end admin
     public function getProductDetail($product_id){
-         $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 
+        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get(); 
         $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get(); 
 
         $details_product = DB::table('tbl_product')

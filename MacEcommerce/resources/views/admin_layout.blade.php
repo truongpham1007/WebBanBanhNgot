@@ -211,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		      <ul id="menu" >
 		        <li id="menu-home" ><a href="{{URL::to('/dashboard')}}"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
 		       
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Danh mục sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a href="{{URL::to('/all-category-product')}}"><i class="fa fa-book nav_icon"></i><span>Danh mục sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
 		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-category-product')}}">Thêm </a>		              
 		            </li>
@@ -220,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		          </ul>
 		        </li>
 
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-bookmark"></i><span>Thương hiệu sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a href="{{URL::to('/all-brand-product')}}"><i class="fa fa-bookmark"></i><span>Thương hiệu sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
 		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-brand-product')}}">Thêm </a>		              
 		            </li>
@@ -228,7 +228,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		          </ul>
 		        </li>
 
-		        <li id="menu-comunicacao" ><a><i class="fa fa-paperclip"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a href="{{URL::to('/all-product')}}"><i class="fa fa-paperclip"></i><span>Sản phẩm</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
 		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/add-product')}}">Thêm </a>		              
 		            </li>
@@ -239,14 +239,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		         
 		        <li id="menu-comunicacao" ><a ><i class="fa fa-list-alt"></i><span>Hóa đơn</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
-		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/manage-order')}}">Liệt kê </a>		              
+		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/manage-order')}}">Đang chờ xử lý </a>
+		            <li id="menu-mensagens" style="width: 120px" ><a href="{{URL::to('/pass-order')}}">Đã giao hàng </a>			              
 		            </li>
 		           
 		          </ul>
 		        </li>
-		        <li><a href="charts.html"><i class="fa fa-user"></i></i><span>Quản lý User</span></a></li>
+		        <li><a href="{{URL::to('/all-user')}}"><i class="fa fa-user"></i></i><span>Quản lý User</span></a></li>
 		         
-		        <li><a href="#"><i class="fa fa-envelope"></i><span>Nhận tin</span></span></a>
+		        <li><a href="{{URL::to('/all-contact')}}"><i class="fa fa-envelope"></i><span>Nhận tin</span></span></a>
 		        	
 		        </li>
 		       

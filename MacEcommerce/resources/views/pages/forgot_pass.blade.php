@@ -25,10 +25,9 @@
 					<div class="col-sm-6">
 						<h4 style="color: blue;" >Quên mật khẩu</h4>
 						<div class="space60">&nbsp;</div>
-				<div>
-					{{(Session('thanhcong'))}}
-
-				</div>
+				 @if(Session('thanhcong'))
+                        <div class="alert alert-success">{{Session('thanhcong')}}</div>
+                    @endif
 						
 					<div class="space30">&nbsp;</div>
 						

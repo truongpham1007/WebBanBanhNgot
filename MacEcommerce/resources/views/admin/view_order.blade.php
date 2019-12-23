@@ -19,8 +19,8 @@
                                         </tr>
                                         
                                         <tr class="unread checked">   
-                                             <td>{{$order_by_id->customer_name}}</td>
-                                             <td>{{$order_by_id->customer_phone}}</td>
+                                             <td>{{$order_by_id->name}}</td>
+                                             <td>{{$order_by_id->phone}}</td>
 
                                             
                                            
@@ -54,8 +54,8 @@
                                             <th>Tên người vận chuyển</th>
                                             <th>Tên số lượng hàng</th>
                                             
+                                            <th>Đại chỉ</th>
                                             <th>Số tiền</th>
-                                            <th>Địa chỉ</th>
                                             <th>Số điện thoại</th>
                                                                                            
                                         </tr>
@@ -83,4 +83,11 @@
                     </div>
                     <div class="clearfix"> </div>
                 </div>
+                <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
 @endsection

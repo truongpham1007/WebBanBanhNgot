@@ -90,7 +90,7 @@
 											<div class="space20">&nbsp;</div>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="add-to-cart pull-left" href="{{URL::to('/product-detail/'.$product->product_id)}}"><i class="fa fa-shopping-cart"></i></a>
 											<a class="beta-btn primary" href="{{URL::to('/product-detail/'.$product->product_id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 
@@ -145,7 +145,7 @@
 											<div class="space20">&nbsp;</div>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="add-to-cart pull-left" href="{{URL::to('/product-detail/'.$product->product_id)}}"><i class="fa fa-shopping-cart"></i></a>
 											<a class="beta-btn primary" href="{{URL::to('/product-detail/'.$product->product_id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 

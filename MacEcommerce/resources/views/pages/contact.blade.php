@@ -19,31 +19,36 @@
 	</div>
 	<div class="container">
 		<div id="content" class="space-top-none">
+
 			
 			<div class="space50">&nbsp;</div>
 			<div class="row">
 				<div class="col-sm-8">
 					<h2 style="color: blue;">Form liên hệ</h2>
 					<div class="space20">&nbsp;</div>
+					@if(Session('thanhcong'))
+                        <div class="alert alert-success">{{Session('thanhcong')}}</div>
+                    @endif
 					<p style="color: red;">Vui lòng gửi phản hồi hoặc yêu cầu của quý khách đến với chúng tôi</p>
 					<br>
 					<p style="color: red;">Những thông tin ký hiệu dấu (*) bắt buộc phải điền</p>
 					<div class="space20">&nbsp;</div>
-					<form action="#" method="post" class="contact-form">
+					<form action="{{URL::to('/add-contacts')}}" method="post" class="contact-form">
+						{{csrf_field()}}
 						<div class="form-block">
-							<input name="your-name" type="text" placeholder="Họ và tên (*)">
+							<input name="name" type="text" placeholder="Họ và tên (*)">
 						</div>
 						<div class="form-block">
-							<input name="your-email" type="email" placeholder="Email của bạn (*)">
+							<input name="email" type="email" placeholder="Email của bạn (*)">
 						</div>
 						<div class="form-block">
-							<input name="your-subject" type="text" placeholder="Tiêu đề">
+							<input name="title" type="text" placeholder="Tiêu đề">
 						</div>
 						<div class="form-block">
-							<textarea name="your-message" placeholder="Lời nhắn"></textarea>
+							<textarea name="desc" placeholder="Lời nhắn"></textarea>
 						</div>
 						<div class="form-block">
-							<button type="submit" class="beta-btn primary">Gửi  <i class="fa fa-chevron-right"></i></button>
+						<button type="submit" class="beta-btn primary">Gửi  <i class="fa fa-chevron-right"></i></button>
 						</div>
 					</form>
 				</div>

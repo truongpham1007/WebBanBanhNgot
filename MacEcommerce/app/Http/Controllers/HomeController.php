@@ -46,6 +46,17 @@ class HomeController extends Controller
     public function getContact(){
         return view('pages.contact');
     }
+    public function addContact(Request $request){
+        $data = array();
+        $data['name'] = $request->name;
+        $data['contact_desc'] = $request->desc;
+        $data['email'] = $request->email;
+        $data['title'] = $request->title;
+
+        DB::table('contacts')->insert($data);
+       
+        return redirect()->back()->with(['thanhcong' => 'Gửi thành công!!!']);
+    }
 
 
    

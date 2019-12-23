@@ -24,10 +24,10 @@ class CheckoutController extends Controller
     public function view_order($orderId){
         $this->AuthLogin();
         $order_by_id = DB::table('tbl_order')
-        ->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
+        ->join('users','tbl_order.id','=','users.id')
         ->join('tbl_shipping','tbl_order.shipping_id','=','tbl_shipping.shipping_id')
         ->join('tbl_order_details','tbl_order.order_id','=','tbl_order_details.order_id')
-        ->select('tbl_order.*','tbl_customers.*','tbl_shipping.*','tbl_order_details.*')->first();
+        ->select('tbl_order.*','users.*','tbl_shipping.*','tbl_order_details.*')->first();
 
         $manager_order_by_id  = view('admin.view_order')->with('order_by_id',$order_by_id);
         return view('admin_layout')->with('admin.view_order', $manager_order_by_id);
@@ -84,7 +84,7 @@ class CheckoutController extends Controller
 
         //insert order
         $order_data = array();
-        $order_data['customer_id'] = Session::get('customer_id');
+        $order_data['id'] = Session::get('customer_id');
         $order_data['shipping_id'] = Session::get('shipping_id');
         $order_data['payment_id'] = $payment_id;
         $order_data['order_total'] = Cart::total();
@@ -126,12 +126,12 @@ class CheckoutController extends Controller
     public function login_customer(Request $request){
     	$email = $request->email_account;
     	$password = md5($request->password_account);
-    	$result = DB::table('tbl_customers')->where('customer_email',$email)->where('customer_password',$password)->first();
+    	$result = DB::table('users')->where('email',$email)->where('password',$password)->first();
     	
     	
     	 if($result){
-            Session::put('customer_id',$result->customer_id);
-            Session::put('customer_name',$result->customer_name);
+            Session::put('customer_id',$result->id);
+            Session::put('customer_name',$result->name);
             return Redirect::to('/login-checkout');
         }else{
             Session::put('message','Mật khẩu hoặc tài khoản bị sai');
@@ -146,16 +146,33 @@ class CheckoutController extends Controller
         
         $this->AuthLogin();
         $all_order = DB::table('tbl_order')
-        ->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
-        ->select('tbl_order.*','tbl_customers.customer_name')
+        ->join('users','users.id','=','tbl_order.id')
+        ->select('tbl_order.*','users.name')
         ->orderby('tbl_order.order_id','desc')->get();
         $manager_order  = view('admin.manage_order')->with('all_order',$all_order);
         return view('admin_layout')->with('admin.manage_order', $manager_order);
+    }
+    public function pass_order(){
+        
+        $this->AuthLogin();
+        $all_order = DB::table('tbl_order')
+        ->join('users','users.id','=','tbl_order.id')
+        ->select('tbl_order.*','users.name')
+        ->orderby('tbl_order.order_id','desc')->get();
+        $manager_order  = view('pages.da_order')->with('all_order',$all_order);
+        return view('admin_layout')->with('pages.da_order', $manager_order);
     }
     public function delete_order($order_id){
         $this->AuthLogin();
         DB::table('tbl_order')->where('order_id',$order_id)->delete();
         Session::put('message','Xóa thương hiệu sản phẩm thành công');
-        return Redirect::to('manage-order');
+       return redirect()->back()->with(['thanhcong' => 'Đã cập nhật đơn hàng']);
+    }
+    public function update_order($id){
+        $status = 'Đã giao hàng';
+        DB::table('tbl_order')->where('order_id',$id)->update(['order_status' => $status]);;
+       
+        return Redirect::to('/manage-order');
+        
     }
 }

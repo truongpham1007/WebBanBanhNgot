@@ -89,13 +89,14 @@ class CategoryProduct extends Controller
 		DB::table('tbl_category_product')->where('category_id',$req->idCate)->delete();
 	}
 	// end admin
-	public function showCategoryProduct (Request $req){
+	public function showCategoryProduct ($category_id){
 		$cate_product = DB::table('tbl_category_product')->where('category_status',0)->orderby('category_id','asc')->get(); 
         $brand_product = DB::table('tbl_brand')->orderby('brand_id','asc')->get(); 
-        $category_by_id = DB::table('tbl_product')->join('tbl_category_product','tbl_product.category_id','=','tbl_category_product.category_id')->where('tbl_category_product.category_id',$req->idCate)->get();
+        $category_by_id = DB::table('tbl_product')->where('category_id',$category_id)->get();
+       /* dd($category_id);
+        exit(0);*/
         $all_product = DB::table('tbl_product')->where('product_status',0)->orderby('product_id','desc')->limit(8)->get(); 
-        $category_name = DB::table('tbl_category_product')->where('tbl_category_product.category_id',$req->idCate)->limit(1)->get();
-
+        $category_name = DB::table('tbl_category_product')->where('tbl_category_product.category_id',$category_id)->limit(1)->get();
             
        
 		return view('pages.show_category')->with('category',$cate_product)->with('brand',$brand_product)->with('category_id',$category_by_id)->with('all_product',$all_product)->with('cate_name',$category_name);

@@ -16,25 +16,17 @@
 	<div class="container">
 		<div id="content">
 			<div class="our-history">
-				<h2 class="text-center wow fadeInDown">Our History</h2>
+				<h2 class="text-center wow fadeInDown">Lịch sử phát triển</h2>
 				<div class="space35">&nbsp;</div>
 
 				<div class="history-slider">
-					<div class="history-navigation">
-						<a data-slide-index="0" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2003</span></a>
-						<a data-slide-index="1" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2004</span></a>
-						<a data-slide-index="2" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2005</span></a>
-						<a data-slide-index="3" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2007</span></a>
-						<a data-slide-index="4" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2009</span></a>
-						<a data-slide-index="5" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2011</span></a>
-						<a data-slide-index="6" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2014</span></a>
-					</div>
+					
 
 					<div class="history-slides">
 						<div>
 							<div class="row">
 							<div class="col-sm-5">
-								<img src="assets/dest/images/history.jpg" alt="">
+								<img src="https://previews.123rf.com/images/tktktk/tktktk1602/tktktk160200035/53489793-melbourne-australia-february-13-2016-eb-games-shop-american-computer-and-vide-games-retailer-.jpg"  height="320" width="300" alt="">
 							</div>
 							<div class="col-sm-7">
 								<h5 class="other-title">Birth.</h5>
@@ -51,7 +43,7 @@
 						<div>
 							<div class="row">
 							<div class="col-sm-5">
-								<img src="source/assets/dest/images/history.jpg" alt="">
+								<img src="https://previews.123rf.com/images/tktktk/tktktk1602/tktktk160200035/53489793-melbourne-australia-february-13-2016-eb-games-shop-american-computer-and-vide-games-retailer-.jpg"  height="320" width="300" alt="">
 							</div>
 							<div class="col-sm-7">
 								<h5 class="other-title">Web Design</h5>
@@ -68,7 +60,7 @@
 						<div>
 							<div class="row">
 							<div class="col-sm-5">
-								<img src="source/assets/dest/images/history.jpg" alt="">
+								<img src="https://previews.123rf.com/images/tktktk/tktktk1602/tktktk160200035/53489793-melbourne-australia-february-13-2016-eb-games-shop-american-computer-and-vide-games-retailer-.jpg"  height="320" width="300" alt="">
 							</div>
 							<div class="col-sm-7">
 								<h5 class="other-title">Web Development</h5>
@@ -85,7 +77,7 @@
 						<div>
 							<div class="row">
 							<div class="col-sm-5">
-								<img src="assets/dest/images/history.jpg" alt="">
+								<img src="https://previews.123rf.com/images/tktktk/tktktk1602/tktktk160200035/53489793-melbourne-australia-february-13-2016-eb-games-shop-american-computer-and-vide-games-retailer-.jpg"  height="320" width="300" alt="">
 							</div>
 							<div class="col-sm-7">
 								<h5 class="other-title">Photoshop</h5>
@@ -102,7 +94,7 @@
 						<div>
 							<div class="row">
 							<div class="col-sm-5">
-								<img src="assets/dest/images/history.jpg" alt="">
+								<img src="https://previews.123rf.com/images/tktktk/tktktk1602/tktktk160200035/53489793-melbourne-australia-february-13-2016-eb-games-shop-american-computer-and-vide-games-retailer-.jpg"  height="320" width="300" alt="">
 							</div>
 							<div class="col-sm-7">
 								<h5 class="other-title">Skill</h5>
@@ -119,7 +111,7 @@
 						<div>
 							<div class="row">
 							<div class="col-sm-5">
-								<img src="assets/dest/images/history.jpg" alt="">
+								<img src="https://previews.123rf.com/images/tktktk/tktktk1602/tktktk160200035/53489793-melbourne-australia-february-13-2016-eb-games-shop-american-computer-and-vide-games-retailer-.jpg"  height="400" width="300" alt="">
 							</div>
 							<div class="col-sm-7">
 								<h5 class="other-title">Project.</h5>
@@ -136,7 +128,7 @@
 						<div>
 							<div class="row">
 							<div class="col-sm-5">
-								<img src="assets/dest/images/history.jpg" alt="">
+								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPPrJxNgE9ttRDfseFPhK0S1Cc6HmckQJTI6dl45T3vlLzjXb7&s" alt="">
 							</div>
 							<div class="col-sm-7">
 								<h5 class="other-title">Coffe</h5>
@@ -268,10 +260,10 @@
 				<div class="col-sm-3">
 					<div class="beta-person beta-person-full">
 					<div class="bets-img-hover">
-						<img src="assets/dest/images/person3.jpg" alt="">
+						<img src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t31.0-0/p640x640/19441820_1907538216194183_4113195629336066139_o.jpg?_nc_cat=109&_nc_ohc=lUVSSUcm7dYAQmnwxP6Rf9DlBrYA2_-e5uiTTvLE7vXnaZC4GpB9YN_Kg&_nc_ht=scontent.fsgn5-6.fna&oh=361d41607469ca8f2546eebb6870c528&oe=5E725A02" alt="">
 					</div>
 						<div class="beta-person-body">
-							<h5>Mike Greenwood</h5>
+							<h5>Pham Quag Truong</h5>
 							<p class="font-large">Web developer</p>
 							<p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
 							<a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
